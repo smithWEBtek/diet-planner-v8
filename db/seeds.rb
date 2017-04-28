@@ -394,7 +394,7 @@ end
 def main
   make_diets
   make_groups
-  # make_foods
+  make_foods
   make_users
   # make_logs
   # make_mealnames

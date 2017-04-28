@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :foods
   resources :groups
 	root 'static#home'
   get '/home', to: 'static#home'
