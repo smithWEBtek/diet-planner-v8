@@ -1,46 +1,61 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
+repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+"https://github.com/#{repo_name}.git"
 end
+#documents
+gem 'mailgun'
+gem 'paperclip'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'pdf-reader'
+gem 'rails-erd'
+ 
+#scraping
+gem 'watir'
+gem 'nokogiri', '>=1.5.9'
+gem 'httparty'
 
+#enumerate e.g. admin, standard via integer in db column
+gem 'pundit'
+#user authorization
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
-# Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
-# Use Puma as the app server
+#debugging
+gem 'pry'
+gem 'pry-rails'
+
+#rails, postgres database and puma local server
+gem 'rails', '~> 5.0.1'
+gem 'pg'
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
+gem 'yaml_db'
+
+#style
+gem "bootstrap-sass"
+gem 'sprockets', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
+
+#javascript, jquery, json, api, serializer
 gem 'coffee-rails', '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'json'
+gem 'active_model_serializers'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'minitest'
 end
 
 group :development do
+
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
