@@ -1,0 +1,28 @@
+<div class="registration_bar">
+  <% if !current_user %>
+  <%= link_to "Home", home_path %>
+  |
+  <%= link_to "Sign Up", new_user_registration_path %>
+  |
+  <%= link_to "Sign In",  new_user_session_path %><br>
+  <% end %>
+
+  <% if current_user && user_signed_in? %>
+  <%= link_to "Home", root_path %>
+  |
+  <%= link_to "Sign Out", destroy_user_session_path %>
+  |
+  <%#= link_to "Diets & Stats", diets_path %>
+  |
+  <%#= link_to "FoodGroups", groups_path %>
+  |
+  <%#= link_to "Foods", foods_path %>
+  |
+  <%= link_to "User Account", user_path(current_user) %>
+
+  <div class="flash_style">
+    <%= current_user.username.upcase %>, logged in as:
+    <%= current_user.role.upcase %>
+    user.
+    <% end %>
+  </div>
