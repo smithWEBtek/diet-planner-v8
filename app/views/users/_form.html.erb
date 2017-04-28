@@ -1,0 +1,61 @@
+<div>
+  <%= form_for user do |f| %>
+
+  <% if f.object.errors.any? %>
+  <div id="error_explanation" class="flash_style">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% f.object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  
+  <div class="field<%= '_with_errors' if f.object.errors[:username].any? %>">
+    <%= f.label :username %>
+    <%= f.text_field :username %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:email].any? %>">
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:password].any? %>">
+    <%= f.label :password %>(required)
+    <%= f.password_field :password %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:weight].any? %>">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:diet].any? %>">
+    <%= f.label :diet %>
+    <%= f.collection_select :diet_id, @diets, :id, :name %><br>
+  </div>
+
+  <!--add in a nested log form -->
+  <hr>
+  <p>Add a log note (required):
+  </p>
+  <p>
+    <!-- <%#= f.fields_for @user.logs.build do |log| %>  from stack overflow example--> 
+    <%= f.fields_for :logs do |log| %>
+    <% if !log.object.id.present? %>
+    <%= log.label :date %>
+    <%= log.date_select :date %><br>
+    <%= log.label :note %>
+    <%= log.text_area :note %><br>
+    <% end %>
+    <% end %>
+  </p>
+
+  <% if current_user.admin? %>
+  <%= f.radio_button(:role, "standard") %>
+  <%= f.label(:role_standard, "standard") %>
+
+  <%= f.radio_button(:role, "admin") %>
+  <%= f.label(:role_standard, "admin") %><br>
+  <% end %>
+  <%= f.submit %>
+  <% end %>
+</div>

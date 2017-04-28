@@ -1,0 +1,45 @@
+<div>
+  <%= form_for user do |f| %>
+  <% if f.object.errors.any? %>
+  <div id="error_explanation" class="flash_style">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% f.object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
+
+  <div class="field<%= '_with_errors' if f.object.errors[:username].any? %>">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:email].any? %>">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:password].any? %>">
+    <%= f.label :password %>(required)
+    <%= f.password_field :password %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:weight].any? %>">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:diet_id].any? %>">
+    <%= f.label :diet %>
+    <%= f.collection_select :diet_id, @diets, :id, :name %>
+  </div>
+  <% if current_user.admin? %>
+  <div class="field<%= '_with_errors' if f.object.errors[:role].any? %>">
+    <%= f.radio_button(:role, "standard") %>
+    <%= f.label(:role_standard, "standard") %>
+
+    <%= f.radio_button(:role, "admin") %>
+    <%= f.label(:role_standard, "admin") %>
+  </div>
+  <% end %>
+  <%= f.submit %>
+  <% end %>
+</div>

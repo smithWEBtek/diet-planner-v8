@@ -1,0 +1,30 @@
+<table>
+  <tr align="left">
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>ID</th>
+    <th>Role</th>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Weight</th>
+    <th>#Meals</th>
+    <th>TotCals</th>
+    <th>AvgCals/Meal</th>
+    <th>Diet</th>
+  </tr>
+  <% users.sort_by.each do |user| %>
+  <tr>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Delete', user_path(user), :method => :delete, :confirm => 'Are you sure?' %></td>
+    <td><%= user.id %></td>
+    <td><%= user.role %></td>
+    <td><%= link_to user.username, user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= user.weight %></td>
+    <td><%= user.meals.count %></td>
+    <td><%= user.user_cals %></td>
+    <td><%= user.user_avg_cals_per_meal %></td>
+    <td><%= link_to user.diet.name, diet_path(user.diet) %></td>
+  </tr>
+  <% end %>
+</table>

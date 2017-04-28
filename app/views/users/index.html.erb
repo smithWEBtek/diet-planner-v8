@@ -1,0 +1,9 @@
+<h1>Users</h1>
+
+<% if current_user.admin? %>
+  <%= link_to "Users list: viewable to Admin only", admin_index_path %>
+<% else %>
+  <p>
+    Users list: viewable to Admin only
+  </p>
+<% end %>

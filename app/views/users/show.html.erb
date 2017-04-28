@@ -1,0 +1,62 @@
+<h3>User Account</h3 >
+<div class="index_view">
+  <hr>
+  Name:
+  <%= @user.username %><br>
+  Email:
+  <%= link_to @user.email, mail_to(@user.email) %><br>
+  Weight:
+  <%= @user.weight %><br>
+  <% if @user.diet.name ==  "Choose a diet" %>
+  <p class='flash_style'>Diet:
+    <%= link_to "Please choose a diet", edit_user_path(@user) %></p>
+<% else %>
+  Diet:
+  <%= link_to @user.diet.name, diet_path(@user.diet) %><br>
+  <% end %>
+
+  <button>
+    <%= link_to "New Log", new_user_log_path(@user) %>
+  </button>
+  <button>
+    <%= link_to "New Meal", new_meal_path %>
+  </button>
+  <button>
+    <%= link_to "New Food", new_food_path %>
+  </button>
+  <button>
+    <%= link_to 'Edit Account', edit_user_path(@user) %>
+  </button>
+  <button>
+    <%= link_to 'Export My Data', export_user_csv_path %>
+  </button>
+  <button>
+    <%= link_to 'Cancel Account', welcome_goodbye_path, :confirm => 'Are you sure?' %>
+  </button>
+</div>
+<div>
+  <hr>
+  <a href="#logs">MyLogs</a>
+  |
+  <a href="#meals">MyMeals</a>
+  |
+  <a href="#userstats">MyStats</a>
+</div>
+<div>
+
+  <hr>
+
+  <h3 id="logs">MyLogs</h3>
+  <a href="#top">^top</a><br><br>
+  <%= render partial: 'logs/logs', locals: { logs: @user.logs }%>
+  <hr>
+
+  <h3 id="meals">MyMeals</h3>
+  <a href="#top">^top</a><br><br>
+  <%= render partial: 'meals/meals', locals: { meals: @user.meals }%>
+  <hr>
+
+  <h3 id="userstats">MyStats</h3>
+  <a href="#top">^top</a><br><br>
+  <%= render partial: 'users/userstats', locals: { user: @user, meals_count: @meals_count, user_cals: @user_cals, user_avg_cals_per_meal: @user_avg_cals_per_meal } %>
+  <hr>

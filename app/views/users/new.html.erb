@@ -1,0 +1,7 @@
+<h1>New User</h1>
+
+<% if current_user.admin? %>
+<div class='index_view'>
+  <%= render partial: 'form', locals: { user: @user } %>
+  <% end %>
+</div>

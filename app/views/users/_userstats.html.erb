@@ -1,0 +1,22 @@
+<table>
+  <tr align="left">
+    <th>ID</th>
+    <th>UserName</th>
+    <th>Email</th>
+    <th>Weight</th>
+    <th>#Meals</th>
+    <th>TotCals</th>
+    <th>AvgCals/Meal</th>
+    <th>Diet</th>
+  </tr>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= link_to user.username, user_path(user) %></td>
+    <td><%= user.email %></td>
+    <td><%= user.weight %></td>
+    <td><%= meals_count %></td>
+    <td><%= user_cals %></td>
+    <td><%= user_avg_cals_per_meal %></td>
+    <td><%= link_to user.diet.name, diet_path(user.diet) %></td>
+  </tr>
+</table>
