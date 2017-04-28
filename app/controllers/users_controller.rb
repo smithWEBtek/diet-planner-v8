@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # end
 
   def show
+    @user = User.find_by_id(params[:id])
     # @user = current_user unless current_user.admin?
     # @meals_count = @user.meals.count
     # @user_cals = @user.user_cals
