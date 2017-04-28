@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   # has_many :meals
   # has_many :foods, through: :meals
-  # belongs_to :diet
+  belongs_to :diet
   # has_many :logs
 
   validates :email, presence: true, uniqueness: true
