@@ -1,14 +1,14 @@
 class AdminController < ApplicationController
   # before_filter :authorize_admin, except: [:user_cancellation, :quotes, :group_update, :export_users_data]
 
-  def new_user
-    @user = User.new
-    render 'admin/new_user'
-  end
+  # def new_user
+  #   @user = User.new
+  #   render 'admin/new_user'
+  # end
 
-  def user_cancellation
-    render '/welcome/goodbye'
-  end
+  # def user_cancellation
+  #   render '/welcome/goodbye'
+  # end
 
   # def group_update
   #   @foods = []
@@ -26,16 +26,21 @@ class AdminController < ApplicationController
   # end
 
   def index
+    @diets = Diet.all
     @users = User.all
     # @logs = Log.all
     # @groups = Group.all
-    @diets = Diet.all
     # @foods = Food.all
     # @meals = Meal.all
-# , @logs, @groups, @diets, @foods, @meals]
+
+    # render 'admin/index'
+  end
+
+  def api_diets
+    @diets = Diet.all
       respond_to do |format|
       format.html { render 'admin/index' }
-      format.json { render json: @users }
+      format.json { render json: @diets }
     end
   end
 
@@ -54,14 +59,6 @@ class AdminController < ApplicationController
   #     format.json { render json: @logs }
   #   end
   # end
-
-  def api_diets
-    @diets = Diet.all
-      respond_to do |format|
-      format.html { render 'admin/index' }
-      format.json { render json: @diets }
-    end
-  end
 
   # def api_foods
   #   @foods = Food.all
