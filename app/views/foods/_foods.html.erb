@@ -11,10 +11,10 @@
   </tr>
   <% foods.sort_by.each do |food| %>
     <tr>
-    <% if current_user.admin? %>    
-      <td><%= link_to 'Edit', edit_food_path(food) %></td>
-      <td><%= link_to 'Delete', food_path(food), method: :delete, confirm: 'Are you sure?' %></td>
-    <% end %>
+      <% if current_user.admin? %>    
+        <td><%= link_to 'Edit', edit_food_path(food) %></td>
+        <td><%= link_to 'Delete', food_path(food), method: :delete, confirm: 'Are you sure?' %></td>
+      <% end %>
       <td><%= food.id %></td>      
       <td><%= link_to food.name, food_path(food) %></td>
       <td><%= link_to food.group.name, group_path(food.group) %></td>

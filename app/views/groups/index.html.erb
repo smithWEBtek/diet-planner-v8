@@ -1,9 +1,6 @@
-<h3>FoodGroups</h3>
+<h3>Groups</h3>
 
 <% if current_user.admin? %>
 <p><%= link_to "New Group", new_group_path %></p>
 <% end %>
-
-<div class='index_view'>
-  <%= render partial: 'groups/groups', locals: { groups: @groups } %>
-</div>
+<%= render partial: 'groups/groups', locals: { groups: @groups } %>

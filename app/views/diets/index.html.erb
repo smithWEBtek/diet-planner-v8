@@ -3,12 +3,11 @@
 <% if current_user.admin? %>
 <p><%= link_to "New Diet", new_diet_path %></p>
 <% end %>
-<div class='index_view'>
-  <%= render partial: 'diets/diets', locals: { diets: @diets } %>
-</div>
+
+<%= render partial: 'diets/diets', locals: { diets: @diets } %>
 
 <h3>Diet Stats</h3>
 Total calories consumed by each Diet group, # of meals and avg calories per meal, in each Diet group.
-<div class='index_view'>
-  <%= render partial: 'diets/dietstats', locals: { diets: @diets } %>
-</div>
+
+<%= render partial: 'diets/dietstats', locals: { diets: @diets } %>
+
