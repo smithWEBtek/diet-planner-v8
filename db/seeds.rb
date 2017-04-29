@@ -402,7 +402,7 @@ def main
   # make_celebs
   # make_verbs
   # make_adjs
-  # make_phrases
+  make_phrases
   # make_quotes
 end
 
