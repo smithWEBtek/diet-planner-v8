@@ -396,9 +396,9 @@ def main
   make_groups
   make_foods
   make_users
-  # make_logs
-  # make_mealnames
-  # make_meals
+  make_logs
+  make_mealnames
+  make_meals
   # make_celebs
   # make_verbs
   # make_adjs

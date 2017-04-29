@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  resources :meals
+  resources :meal_names
   resources :foods
   resources :groups
 	root 'static#home'
