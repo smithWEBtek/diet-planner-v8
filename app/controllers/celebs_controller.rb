@@ -23,9 +23,11 @@ class CelebsController < ApplicationController
   end
 
   def create
+# raise params.inspect
+
     @celeb = Celeb.new(celeb_params)
     if @celeb.save
-      render :new_celeb, layout: false
+      redirect_to 'celeb_path', layout: false
     #   respond_to do |format|
     #   	format.html { redirect_to celeb_path(@celeb) }
     #   	format.json { render json: @celeb }

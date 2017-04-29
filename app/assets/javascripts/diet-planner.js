@@ -10,10 +10,9 @@ $(function(){
   		url: url,
   		data: data,
   		success: function(response){
-  			debugger;
-  			
-  			$("#new_celeb").html(response)
-  		}
+debugger;
+  		 $("#celeb_added").html(response)
+  		 } 
   	});
   	e.preventDefault(); 		
   });

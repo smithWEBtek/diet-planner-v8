@@ -14,21 +14,18 @@
 </p>
 <p>Ajax Quick quotes while your server is busy with something else...</p>
 
-
-
 <div>
-   <%= form_for(@celeb, url: celebs_path, method: "post") do |f| %>
+   <%= form_for(@celeb) do |f| %>
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
   <%= f.submit %>
   <% end %>
 </div>
+Added Celebs: 
+<div id="celeb_added"></div>
 
 <hr>
-<div id="new_celeb"></div>
-
-
-
+ 
 
 <hr>
 </div>
