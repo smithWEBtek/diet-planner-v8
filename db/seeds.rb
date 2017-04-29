@@ -400,7 +400,7 @@ def main
   make_mealnames
   make_meals
   make_celebs
-  # make_verbs
+  make_verbs
   # make_adjs
   make_phrases
   # make_quotes

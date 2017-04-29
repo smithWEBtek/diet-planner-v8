@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PhrasesControllerTest < ActionDispatch::IntegrationTest
+class VerbTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
