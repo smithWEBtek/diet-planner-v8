@@ -399,7 +399,7 @@ def main
   make_logs
   make_mealnames
   make_meals
-  # make_celebs
+  make_celebs
   # make_verbs
   # make_adjs
   make_phrases
