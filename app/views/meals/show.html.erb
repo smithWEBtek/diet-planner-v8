@@ -1,0 +1,19 @@
+<h3>Meal: <%= @meal.mealname.name %></h3>
+  <p>
+    Mealdate: <%= @meal.mealdate %>
+  </p>
+  <p>
+    UserName: <%= link_to @meal.user.username, user_path(@meal.user) %>
+  </p>
+  <p>
+    Food: <%= link_to @meal.food.name, food_path(@meal.food) %>
+  </p>
+  <p>
+    Qty: <%= @meal.qty %>
+  </p>
+  <p>
+    Note: <%= @meal.note %>
+  </p>
+<%= link_to 'Edit', edit_meal_path(@meal) %> -
+<%= link_to 'Delete', meal_path, method: :delete, data: { confirm: "Are you sure?" } %>
+ 

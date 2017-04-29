@@ -1,0 +1,4 @@
+"Celeb", "Verb", "Adj", "Food", "Diet", "Phrase"
+<% @quotes.each do |quote| %>
+<%= raw "\"#{quote.celeb.name}\"" %>,<%= raw "\"#{quote.verb.name}\"" %>,<%= raw "\"#{quote.adj.name}\"" %>,<%= raw "\"#{quote.food.name}\"" %>,<%= raw "\"#{quote.diet.name}\"" %>,<%= raw "\"#{quote.phrase.content}\"" %>
+<% end %>

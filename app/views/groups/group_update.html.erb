@@ -1,0 +1,23 @@
+<% if !@foods.present? %>
+<p class="flash_style">All foods have Groups assigned.</p>
+<% end %>
+<table>
+  <tr align="left">
+    <% if current_user.admin? %>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% end %>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  <% @foods.sort.each do |food| %>
+  <tr>
+    <% if current_user.admin? %>
+    <td><%= link_to 'Edit', edit_food_path(food) %></td>
+    <td><%= link_to 'Delete', food_path(food), method: :delete, confirm: 'Are you sure?' %></td>
+    <% end %>
+    <td><%= food.id %></td>
+    <td><%= link_to food.name, food_path(food) %></td>
+  </tr>
+  <% end %><br>
+</table>

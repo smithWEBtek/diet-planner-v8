@@ -1,0 +1,25 @@
+<%= form_for food do |f| %>
+<% if food.errors.any? %>
+<div id="error_explanation" class="flash_style">
+  <h2>There were some errors:</h2>
+  <ul>
+    <% food.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="field<%= ' field_with_errors' if food.errors[:name].any? %>">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div class="field<%= ' field_with_errors' if food.errors[:group].any? %>">
+  <%= f.label :group %>
+  <%= f.collection_select :group_id, groups, :id, :name %>
+</div>
+<div class="field<%= ' field_with_errors' if food.errors[:cals].any? %>">
+  <%= f.label :cals %>
+  <%= f.text_field :cals %>
+</div>
+<%= f.submit %>
+<% end %>

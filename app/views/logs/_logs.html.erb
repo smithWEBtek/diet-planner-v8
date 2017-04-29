@@ -1,0 +1,18 @@
+<table>
+  <tr align="left">
+    <th>Edit</th>
+    <th>Delete</th>      
+    <th>ID</th>
+    <th>UserName</th>
+    <th>Note</th>
+  </tr>
+  <% logs.sort_by.each do |log| %>
+    <tr>
+      <td><%= link_to 'Edit', edit_user_log_path(log.user, log) %></td>
+      <td><%= link_to 'Delete', user_log_path(log.user, log), :method => :delete, :confirm => 'Are you sure?' %></td>
+      <td><%= log.id %></td>      
+      <td><%= link_to log.user.username, user_log_path(log.user, log) %></td>
+      <td><%= link_to log.note, user_log_path(log.user, log) %></td>
+    </tr>
+  <% end %>
+</table>

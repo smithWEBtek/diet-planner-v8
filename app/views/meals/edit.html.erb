@@ -1,0 +1,37 @@
+<h3>Edit Meal</h3>
+
+<%= form_for(@meal) do |f| %>
+  <% if f.object.errors.any? %>
+    <div id="error_explanation" class="flash_style">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% f.object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :mealdate %>
+    <%= f.date_field :mealdate %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:food_id].any? %>">
+    <%= f.label :food %>
+    <%= f.collection_select :food_id, @foods, :id, :name, include_blank: true %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:new_food].any? %>">
+    <%= f.label :new_food %>
+    <%= f.text_field :new_food %><br>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:qty].any? %>">
+    <%= f.label :qty %>
+    <%= f.text_field :qty %><br>
+  </div>
+  <div>
+    <%= f.label :note %>
+    <%= f.text_field :note %><br>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :mealname_id %>
+  </div>
+  <%= f.submit %> 
+<% end %>

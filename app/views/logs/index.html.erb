@@ -1,0 +1,6 @@
+<h3>Logs</h3>
+ 
+<%= link_to "New Log", new_user_log_path(current_user) %>
+<div class='index_view'>
+  <%= render partial: 'logs/logs', locals: { logs: @logs }%>
+</div>

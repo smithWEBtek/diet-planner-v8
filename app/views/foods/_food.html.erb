@@ -1,0 +1,4 @@
+ID: <%= @food.id %><br>
+Name: <%= link_to @food.name, food_path(@food) %><br>
+Group: <%= link_to @food.group.name, group_path(@food.group) %><br>
+Calories: <%= @food.cals %>

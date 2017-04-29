@@ -1,2 +1,63 @@
-<h1>Diet Planner</h1>
-<p>..umm...you gonna eat that?</p>
+<div class="index_view">
+  <h1>Welcome to DietTracker!</h1>
+
+  <h3>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
+  </h3>
+
+</div>
+<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."
+  <i><br>-- Confucius</i>
+</p>
+
+<p>“That which is measured, improves”
+  <i><br>-- Mom</i>
+</p>
+<hr>
+</div>
+<div class="registration_bar">
+<h3>Celebrity Quotes</h3>
+<h4>
+  <button id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
+  <div id="new_quote"></div>
+  
+  <button id="generate_random_quotes"><%= link_to "Generate Random Quotes", random_quotes_path %></button>
+  <div id="quotes"></div>
+  
+  <button id=clear_quotes><%= link_to "Clear Quotes", clear_quotes_path %></button>  
+  
+  <button id="download_csv"><%= link_to "Export Quotes in CSV format", export_quotes_csv_path %></button>
+  <div id="show_csv"></div>
+</h4>
+<div id="celebrity_quotes"></div>
+  <%= render partial: 'quotes/quotes', locals: { quotes: @quotes } %>
+Quote Index
+<div class='index_view'>
+  <table>
+    <tr align="left">
+      <th>Edit</th>
+      <th>Delete</th>
+      <th>ID</th>
+      <th>Celeb</th>
+      <th>Verb</th>
+      <th>Adj</th>
+      <th>Food</th>
+      <th>Phrase</th>
+      <th>Diet</th>
+    </tr>
+    <% @quotes.each do |quote| %>
+    <tr>
+      <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
+      <td><%= link_to 'Delete', quote_path(quote), :method => :delete, :confirm => 'Are you sure?' %></td>
+      <td><%= quote.id %></td>
+      <td><%= quote.celeb.name %></td>
+      <td><%= quote.verb.name %></td>
+      <td><%= quote.adj.name %></td>
+      <td><%= quote.food.name %></td>
+      <td><%= quote.phrase.content %></td>
+      <td><%= link_to quote.diet.name, diet_path(quote.diet) %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<hr>
+<div>

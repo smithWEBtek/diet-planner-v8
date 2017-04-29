@@ -1,0 +1,17 @@
+<h3>FoodGroup</h3>
+
+<div class='index_view'>
+  <%= render 'groups/group', group: @group %>
+  <% if current_user.admin? %>
+  <%= link_to "Edit", edit_group_path(@group) %>
+  |
+  <%= link_to "Delete", group_path(@group), method: :delete, data: { confirm: "Are you sure?" } %><br>
+  <% end %>
+</div>
+<br>
+<div class='index_view'>
+  Foods in the
+  <%= "#{@group.name}" %>
+  Group:
+  <%= render partial: 'foods/foods', locals: { foods: @group.foods }%>
+</div>

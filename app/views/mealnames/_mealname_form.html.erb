@@ -1,0 +1,19 @@
+<%= form_for(mealname) do |f| %>
+  <% if mealname.errors.any? %>
+    <div id="error_explanation" class="flash_style">
+      <h2>There were some errors:</h2>
+      <ul>
+        <% mealname.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field<%= ' field_with_errors' if mealname.errors[:name].any? %>">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

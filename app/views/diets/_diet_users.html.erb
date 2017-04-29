@@ -1,0 +1,12 @@
+<table>
+  <tr align="left">
+    <th>ID</th>
+    <th>UserName</th>
+  </tr>
+  <% users.sort_by.each do |user| %>
+  <tr>
+    <td><%= user.id %></td>
+    <td><%= link_to user.username, user_path(user) %></td>
+  </tr>
+  <% end %>
+</table>

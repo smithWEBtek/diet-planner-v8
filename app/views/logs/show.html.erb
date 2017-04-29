@@ -1,0 +1,8 @@
+<h3>Log</h3>
+
+<div class="index_view">
+  <%= render partial: 'logs/log/', locals: { log: @log } %>
+</div>
+<%= link_to "Edit", edit_user_log_path(@log.user, @log) %> | 
+<%= link_to "Delete", user_log_path(@log.user, @log), method: :delete, data: { confirm: "Are you sure?" } %> | 
+<%= link_to "New", new_user_log_path(current_user) %>

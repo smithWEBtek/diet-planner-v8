@@ -1,0 +1,9 @@
+<h3>Food</h3>
+
+<div class='index_view'>
+  <%= render 'foods/food', food: @food %>
+</div>
+<% if current_user.admin? %>
+  <%= link_to "Edit", edit_food_path(@food) %> | 
+  <%= link_to "Delete", food_path(@food), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

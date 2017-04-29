@@ -1,0 +1,23 @@
+<%= form_for :log do |f| %>
+<% if log.errors.any? %>
+<div id="error_explanation" class="flash_style">
+  <h2>There were some errors:</h2>
+  <ul>
+    <% log.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<fieldset>
+  <div class="field<%= ' field_with_errors' if log.errors[:date].any? %>">
+    <%= f.label :date %>
+    <%= f.date_select :date %><br>
+  </div>
+  <div class="field<%= ' field_with_errors' if log.errors[:note].any? %>">
+    <%= f.label :note %>
+    <%= f.text_area :note %><br>
+  </div>
+  <%= f.submit %>
+</fieldset>
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for group do |f| %>
+<% if group.errors.any? %>
+<div id="error_explanation" class="flash_style">
+  <h2>There were some errors:</h2>
+  <ul>
+    <% group.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="field<%= ' field_with_errors' if group.errors[:name].any? %>">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<%= f.submit %>
+<% end %>

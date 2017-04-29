@@ -1,0 +1,5 @@
+<h3>Foods</h3>
+<%= link_to "New food", new_food_path %>
+<div class='index_view'>
+  <%= render partial: 'foods/foods', locals: { foods: @foods } %>
+</div>
