@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
  
+  resources :quotes
   resources :phrases
   resources :meals
   resources :meal_names

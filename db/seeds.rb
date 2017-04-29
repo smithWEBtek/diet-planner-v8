@@ -403,7 +403,7 @@ def main
   make_verbs
   make_adjs
   make_phrases
-  # make_quotes
+  make_quotes
 end
 
 main
