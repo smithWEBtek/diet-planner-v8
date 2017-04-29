@@ -1,0 +1,17 @@
+<% if current_user.admin? %>
+"username", "email", "weight", "diet"
+<% @users.each do |user| %>
+<%= raw "\"#{user.username}\"" %>,<%= raw "\"#{user.email}\"" %>,<%= raw "\"#{user.weight}\"" %>,<%= raw "\"#{user.diet.name}\"" %>
+
+"mealname", "food", "qty"
+<% user.meals.each do |meal| %>
+<%= raw "\"#{meal.mealname.name}\"" %>,<%= raw "\"#{meal.food.name}\"" %>,<%= raw "\"#{meal.qty}\"" %>
+<% end %>
+
+"log date", "note"
+<% user.logs.each do |log| %>
+<%= raw "\"#{log.date}\"" %>,<%= raw "\"#{log.note}\"" %>
+<% end %>
+----------------------------------------------------------------------------------------------------
+<% end %>
+<% end %>

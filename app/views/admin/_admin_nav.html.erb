@@ -1,0 +1,16 @@
+<div class="admin">
+  <% if current_user.admin? %>
+  <%= "ADMIN:" %>
+  <% end %>
+  <%= link_to "Users", admin_index_path %>
+  |
+  <%= link_to "Meals", meals_path %>
+  |
+  <%= link_to "Mealnames", mealnames_path %>
+  |
+  <%= link_to "Foods", foods_path %>
+  |
+  <%= link_to "Groups", groups_path %>
+  |
+  <%= link_to "Diets & Stats", diets_path %>
+</div>

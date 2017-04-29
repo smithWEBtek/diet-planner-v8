@@ -1,0 +1,22 @@
+<table>
+  <tr align="left">
+    <% if current_user.admin? %>
+    <th>Edit</th>
+    <th>Delete</th>
+    <% end %>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Count</th>
+  </tr>
+  <% groups.sort.each do |group| %>
+  <tr>
+    <% if current_user.admin? %>
+    <td><%= link_to 'Edit', edit_group_path(group) %></td>
+    <td><%= link_to 'Delete', group_path(group), method: :delete, confirm: 'Are you sure?' %></td>
+    <% end %>
+    <td><%= group.id %></td>
+    <td><%= link_to group.name, group_path(group) %></td>
+    <td><%= group.foods.count %></td>
+  </tr>
+  <% end %><br>
+</table>
