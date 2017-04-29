@@ -12,6 +12,49 @@
 <p>“That which is measured, improves”
   <i><br>-- Mom</i>
 </p>
+<p>Ajax Quick quotes while your server is busy with something else...</p>
+<div id="quick_quote_form">
+   <%= form_for(@quote, url: quotes_path, method: "post") do |f| %>
+  <% if f.object.errors.any? %>
+  <div id="error_explanation" class="flash_style">
+    <h2>There were some errors:</h2>
+    <ul>
+      <% f.object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <div class="field<%= '_with_errors' if f.object.errors[:celeb].any? %>">
+    <%= f.label :celeb %><br>
+    <%= f.text_field :celeb %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:verb].any? %>">
+    <%= f.label :verb %><br>
+    <%= f.text_field :verb %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:adj].any? %>">
+    <%= f.label :adj %><br>
+    <%= f.text_field :adj %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:food].any? %>">
+    <%= f.label :food %><br>
+    <%= f.text_field :food %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:diet].any? %>">
+    <%= f.label :diet %><br>
+    <%= f.collection_select :diet_id, Diet.all, :id, :name %>
+  </div>
+  <div class="field<%= '_with_errors' if f.object.errors[:phrase].any? %>">
+    <%= f.label :phrase %><br>
+    <%= f.text_field :phrase %><br>
+  </div>
+  <%= f.submit %>
+  <% end %>
+</div>
+<hr>
+<div id="quick_quote_response"></div>
+
 <hr>
 </div>
 <div class="registration_bar">
