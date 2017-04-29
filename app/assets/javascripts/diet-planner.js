@@ -1,17 +1,20 @@
 $(function(){
-  $("#new_celeb_form").on("submit", function(e){
- 
-  	// $.ajax(
-  	// 	method: "POST"
-  	// 	URL: '/quotes'
-  	// 	data: $("#quick_quote_form").val
- console.log(this)
- debugger;
-  //   $.get(this.href).success(function(response){
-  //     $("div#ajax-contacts").html(response);
-  //   }).error(function(){
-  //     alert("we broke!!!");
-  //   });
-    e.preventDefault();
+  $("#new_celeb").on("submit", function(e){
+		url = this.action
+  	data = {
+  		'authenticity_token':	$("input[name='authenticity_token']").val(),
+  		'celeb': {'name': $("#celeb_name").val()}
+  	}
+  	$.ajax({
+  		type: "POST",
+  		url: url,
+  		data: data,
+  		success: function(response){
+  			debugger;
+  			
+  			$("#new_celeb").html(response)
+  		}
+  	});
+  	e.preventDefault(); 		
   });
 }); 

@@ -13,7 +13,7 @@ class CelebsController < ApplicationController
   
   def show
      respond_to do |format|
-      format.html { render :show }
+      format.html { render :show, layout: false }
       format.json { render json: @celeb }
     end
   end
@@ -25,13 +25,13 @@ class CelebsController < ApplicationController
   def create
     @celeb = Celeb.new(celeb_params)
     if @celeb.save
-      flash[:notice] = "celeb created."
-      respond_to do |format|
-      	format.html {  redirect_to celeb_path(@celeb) }
-      	format.json { render json: @celeb }
-    end
+      render :new_celeb, layout: false
+    #   respond_to do |format|
+    #   	format.html { redirect_to celeb_path(@celeb) }
+    #   	format.json { render json: @celeb }
+    # end
     else
-      render :new
+      render 'celebs/show'
     end
   end
 
