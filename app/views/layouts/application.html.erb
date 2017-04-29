@@ -16,7 +16,7 @@
 
     <div class="container">
       <%= render 'layouts/header' %>
-      <%#= render partial: 'admin/admin_nav' if current_user && current_user.admin? %>
+      <%= render partial: 'admin/admin_nav' if current_user && current_user.admin? %>
       <div id="flash_messages" class="flash_style">
         <% flash.each do |key, value| %>
         <%= content_tag(:div, value, :class => "flash #{key}") %>

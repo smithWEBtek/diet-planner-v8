@@ -1,38 +1,81 @@
-class Meal < ApplicationRecord
-  belongs_to :user
-  belongs_to :mealname
-  belongs_to :food
+class MealsController < ApplicationController
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
+  before_action :load_models
 
-  validates :qty, presence: true, numericality: true
-  validate :valid_id_or_new_food, :warn_existing_food_saved
- 
-  def valid_id_or_new_food
-    if food_id.nil? && new_food == ''
-      errors.add(:food_id, 'must exist in drop-down menu, or please enter a new_food.')
+  def index
+    if current_user.admin?
+      @meals = Meal.all.sort_by {|m| [m.created_at, m.mealname_id]}
+    else
+      @meals = current_user.meals.sort_by {|m| [m.created_at, m.mealname_id]}
+    end
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @meals }
     end
   end
 
-  def warn_existing_food_saved
-    if !food_id.nil? && new_food != ''
-      errors.add(:food_id, "drop-down choice will be saved, please clear the 'New_food' box.")
+  def show
+     respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @meal }
     end
   end
 
-  def total_cals
-    food.cals * qty
+  def new
+    current_user.meals.build(mealname_id: 1)
+    current_user.meals.build(mealname_id: 2)
+    current_user.meals.build(mealname_id: 3)
   end
-
-  def self.reset_meal_food_ids
-    all.each do |meal|
-      next unless Food.find_by_id(meal.food_id).nil?
-      food = Food.find_or_create_by(name: 'food deleted')
-      meal.food_id = food.id
-      meal.save
+  
+  def create
+    @meal = Meal.create(meal_params)
+    if @meal.save
+      flash[:notice] = "Meal created."
+      redirect_to user_path(current_user)
+    else
+      flash[:notice] = @meal.errors.full_messages
+      render 'meals/new'
     end
   end
 
-  def find_or_create_food(new_food_name)
-    @new_food = Food.find_or_create_by(name: new_food_name)
-    @new_food.id
+  def edit
   end
+
+  def update
+    @meal.update(meal_params)
+    if @meal.save
+      flash[:message] = "Meal was updated."
+      redirect_to meal_path(@meal)
+    elsif params[:meal][:new_food]!=""
+      food = Food.find_or_create_by(name: params[:meal][:new_food])
+      @meal.food = food
+      @meal.new_food = ""
+      if @meal.save
+      flash[:message] = "Meal was updated."
+      redirect_to meal_path(@meal)
+    else
+      flash[:message] = @meal.errors.full_messages
+      render :edit
+      end
+    end
+  end
+
+  def destroy
+    if @meal.delete
+      flash[:notice] = "Meal deleted"
+      redirect_to user_logs_path(@meal.user)
+    else 
+      flash[:notice] = @meal.errors.full_messages
+      redirect_to meal_path(@meal)
+    end
+  end
+
+  private
+    def set_meal 
+      @meal = Meal.find_by_id(params[:id])
+    end
+
+    def meal_params
+      params.require(:meal).permit(:mealdate, :mealname_id, :user_id, :food_id, :new_food, :qty, :note)
+    end
 end

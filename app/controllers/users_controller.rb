@@ -1,26 +1,26 @@
 class UsersController < ApplicationController
-  # before_action :authorize_admin, only: [:destroy]
-  # before_action :set_user, only: [:export_csv, :show, :edit, :update, :destroy]
+  before_action :authorize_admin, only: [:destroy]
+  before_action :set_user, only: [:export_csv, :show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # before_action :authenticate_user!, only: [:show]
-  # before_action :load_models
+  before_action :authenticate_user!, only: [:show]
+  before_action :load_models
 
   def new
     @user = User.new
-    # authorize_admin
+    authorize_admin
   end
 
-  # def export_csv
-  #   render '/users/user_data.csv.erb'
-  # end
+  def export_csv
+    render '/users/user_data.csv.erb'
+  end
 
   def show
     @user = User.find_by_id(params[:id])
-    # @user = current_user unless current_user.admin?
-    # @meals_count = @user.meals.count
-    # @user_cals = @user.user_cals
-    # @user_avg_cals_per_meal = @user.user_avg_cals_per_meal
-    # load_diet_stats
+    @user = current_user unless current_user.admin?
+    @meals_count = @user.meals.count
+    @user_cals = @user.user_cals
+    @user_avg_cals_per_meal = @user.user_avg_cals_per_meal
+    load_diet_stats
   end
 
   def create
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   def edit
     @user
-    # @log = @user.logs.build
+    @log = @user.logs.build
   end
 
   def update
@@ -64,8 +64,8 @@ class UsersController < ApplicationController
 	  end
 
 	  def user_params
-	    params.require(:user).permit(:username, :role, :email, :password, :weight, :diet_id)
-	      # logs_attributes: [:user_id, :date, :note],
-	    # meals_attributes: [:user_id, :mealdate, :mealname_id, :food_id, :new_food, :qty, :note])
+	    params.require(:user).permit(:username, :role, :email, :password, :weight, :diet_id,
+	      logs_attributes: [:user_id, :date, :note],
+	       meals_attributes: [:user_id, :mealdate, :mealname_id, :food_id, :new_food, :qty, :note])
 	  end
 end

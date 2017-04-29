@@ -2,6 +2,6 @@
 
 <% if current_user.admin? %>
 <div class='index_view'>
-  <%= render partial: 'form', locals: { user: @user } %>
+  <%= render partial: 'form', locals: { user: @user, diets: @diets } %>
   <% end %>
 </div>

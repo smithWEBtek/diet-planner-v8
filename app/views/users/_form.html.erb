@@ -38,8 +38,8 @@
   <p>Add a log note (required):
   </p>
   <p>
-    <!-- <%#= f.fields_for @user.logs.build do |log| %>  from stack overflow example--> 
-    <%= f.fields_for :logs do |log| %>
+<%= f.fields_for user.logs.build do |log| %>
+    <%#= f.fields_for :logs do |log| %>
     <% if !log.object.id.present? %>
     <%= log.label :date %>
     <%= log.date_select :date %><br>
