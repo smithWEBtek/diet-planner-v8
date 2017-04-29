@@ -9,26 +9,38 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-      <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
   </head>
   <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+          <%= render 'layouts/header' %>
+      </div>
+    </div>
 
-    <div class="container">
-      <%= render 'layouts/header' %>
-      <%= render partial: 'admin/admin_nav' if current_user && current_user.admin? %>
-      <div id="flash_messages" class="flash_style">
-        <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, :class => "flash #{key}") %>
- 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
-        <% end %>
+    <div class="row">
+      <div class="col-lg-12">
+          <%= render partial: 'admin/admin_nav' if current_user && current_user.admin? %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-lg-12">
+        <div id="flash_messages" class="flash_style">
+          <% flash.each do |key, value| %>
+            <%= content_tag(:div, value, :class => "flash #{key}") %>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+          <% end %>
+        </div>
+    
       <%= yield %>
+
       </div>
     </div>
   </div>  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <%= javascript_include_tag "application" %>
+  </body>
 </html>
