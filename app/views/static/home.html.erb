@@ -16,18 +16,18 @@
 </div>
 <div class="registration_bar">
 <h3>Celebrity Quotes</h3>
-<h4>
+<p>
   <button id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
-  <div id="new_quote"></div>
+  <span id="new_quote"></span>
   
-  <button id="generate_random_quotes"><%= link_to "Generate Random Quotes", random_quotes_path %></button>
-  <div id="quotes"></div>
+  <button id="generate_random_quotes"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
+  <span id="quotes"></span>
   
-  <button id=clear_quotes><%= link_to "Clear Quotes", clear_quotes_path %></button>  
+  <button id=clear_quotes><%= link_to "Clear", clear_quotes_path %></button>  
   
-  <button id="download_csv"><%= link_to "Export Quotes in CSV format", export_quotes_csv_path %></button>
-  <div id="show_csv"></div>
-</h4>
+  <button id="download_csv"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
+  <span id="show_csv"></span>
+</p>
 <div id="celebrity_quotes"></div>
   <%= render partial: 'quotes/quotes', locals: { quotes: @quotes } %>
 Quote Index
