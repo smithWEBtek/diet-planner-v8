@@ -3,6 +3,7 @@ $(function(){
 	add_food();
 	add_diet();
 	add_phrase();
+	indexesListeners();
 }); 
 
 function add_celeb(){
@@ -94,3 +95,21 @@ function add_phrase(){
   	e.preventDefault();
   });
 }
+
+function indexesListeners(){
+	$(".indexes button").click(function(event){
+		event.stopImmediatePropagation();
+		$.ajax({
+			type: "GET",
+			url: "/" + this.innerHTML.toLowerCase() + ".json",
+			success: function(response){
+
+				$("#index_celebs").text(response);
+			}
+		})
+	});
+}
+
+
+
+
