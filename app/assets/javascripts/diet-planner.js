@@ -37,7 +37,6 @@ function add_food(){
       	'cals': $("#food_cals").val()
     	}
     }
-  debugger;
     e.stopImmediatePropagation();
     $.ajax({
       type: 'POST',
@@ -45,6 +44,8 @@ function add_food(){
       data: data,
       success: function(response){
       $("#food_name").val('')
+      $("#food_cals").val('')
+      $("#food_group_id").val('No group chosen')
       $("#food_list").append(response)
        }
     });

@@ -8,7 +8,7 @@
     <div class="col-lg-12">
 
       <div class="col-sm-3">
-        <ol id="celeb_list"></ol>
+        <ul id="celeb_list"></ul>
         <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
           <%= f.label :add_celeb %><br>
           <%= f.text_field :name %><br>
@@ -17,23 +17,23 @@
       </div>
 
       <div class="col-sm-3">
-        <ol id="food_list"></ol> 
+        <ul id="food_list"></ul> 
         <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
           <%= f.label :name %><br>
           <%= f.text_field :name %><br>
 
+          <%= f.label :group %><br>
+          <%= f.collection_select :group_id, Group.all, :id, :name %><br>
+
           <%= f.label :calories %><br>
           <%= f.text_field :cals %><br>
 
-          <%= f.label :group %><br>
-          <%= f.collection_select :group_id, Group.all, :id, :name %><br>
-          
         <%= f.submit %>
         <% end %>
       </div>
 
       <div class="col-sm-3">
-        <ol id="diet_list"></ol> 
+        <ul id="diet_list"></ul> 
         <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
           <%= f.label :add_diet %><br>
           <%= f.text_field :name %><br>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="col-sm-3">
-        <ol id="phrase_list"></ol> 
+        <ul id="phrase_list"></ul> 
         <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
           <%= f.label :add_phrase %><br>
           <%= f.text_field :content %><br>
