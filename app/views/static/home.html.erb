@@ -12,20 +12,19 @@
 <p>“That which is measured, improves”
   <i><br>-- Mom</i>
 </p>
-<p>Ajax Quick quotes while your server is busy with something else...</p>
+
+
+<hr>
+<hr>
+<div id="celeb_list"><ol id="asdf"></ol></div>
 
 <div>
-   <%= form_for(@celeb) do |f| %>
-    <%= f.label :name %><br>
+   <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
+    <%= f.label :add_celeb %><br>
     <%= f.text_field :name %><br>
   <%= f.submit %>
   <% end %>
 </div>
-Added Celebs: 
-<div id="celeb_added"></div>
-
-<hr>
- 
 
 <hr>
 </div>

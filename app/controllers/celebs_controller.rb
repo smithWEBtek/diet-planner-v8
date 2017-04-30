@@ -6,7 +6,7 @@ class CelebsController < ApplicationController
   def index
     @celebs = Celeb.all
     respond_to do |format|
-      format.html { render :index }
+      format.html { render :index, layout: false }
       format.json { render json: @celebs }
     end
   end
@@ -23,15 +23,13 @@ class CelebsController < ApplicationController
   end
 
   def create
-# raise params.inspect
-
     @celeb = Celeb.new(celeb_params)
     if @celeb.save
-      redirect_to 'celeb_path', layout: false
-    #   respond_to do |format|
-    #   	format.html { redirect_to celeb_path(@celeb) }
-    #   	format.json { render json: @celeb }
-    # end
+      render 'celebs/new_celeb', layout: false
+      # respond_to do |format|
+      # 	format.html { redirect_to 'celebs/new_celeb' }
+      # 	format.json { render json: @celeb }
+      # end
     else
       render 'celebs/show'
     end
