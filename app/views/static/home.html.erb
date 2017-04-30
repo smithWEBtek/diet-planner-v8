@@ -1,27 +1,13 @@
 <div class="index_view">
-  <h1>Welcome to DietTracker!</h1>
-
-  <h3>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
-  </h3>
-
-</div>
-<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."
-  <i><br>-- Confucius</i>
-</p>
-
-<p>“That which is measured, improves”
-  <i><br>-- Mom</i>
-</p>
-
-
+  <h1>Welcome to DietPlanner!</h1>
 <hr>
 <hr>
-<div id="celeb_list"><ol id="asdf"></ol></div>
+<div><ol id="celeb_list"></ol></div>
 
 <div>
    <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
     <%= f.label :add_celeb %><br>
-    <%= f.text_field :name %><br>
+    <%= f.text_field :name, autofocus: true %><br>
   <%= f.submit %>
   <% end %>
 </div>
@@ -75,3 +61,15 @@ Quote Index
 </div>
 <hr>
 <div>
+
+  <h3>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
+  </h3>
+
+</div>
+<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."
+  <i><br>-- Confucius</i>
+</p>
+
+<p>“That which is measured, improves”
+  <i><br>-- Mom</i>
+</p>

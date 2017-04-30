@@ -11,21 +11,10 @@ $(function(){
   		url: url,
   		data: data,
   		success: function(response){
-  		$("#new_celeb").text('')
-  		$("#asdf").append(response)
+  		$("#celeb_name").val('')
+  		$("#celeb_list").append(response)
   		 }
   	});
   	e.preventDefault();
   });
 }); 
-
-
-// function reloadCelebs(){
-// 	$.ajax({
-// 		method: "GET",
-// 		url: "/celebs"
-//     }).done(function(response){
-//     	// console.log(response);
-//     	$("#celeb_list").append(response);
-// 	});
-// }
