@@ -31,8 +31,13 @@ function add_food(){
     url = this.action
     data = {
       'authenticity_token': $("input[name='authenticity_token']").val(),
-      'food': {'name': $("#food_name").val()}
+      'food': {
+      	'name': $("#food_name").val(),
+      	'group_id': $("#food_group_id").val(),
+      	'cals': $("#food_cals").val()
+    	}
     }
+  debugger;
     e.stopImmediatePropagation();
     $.ajax({
       type: 'POST',

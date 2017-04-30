@@ -22,8 +22,7 @@ class FoodsController < ApplicationController
   end
 
   def create
-    # @food = Food.new(food_params)
-    @food = Food.find_or_create_by(food_params)
+    @food = Food.find_or_create_by(name: params[:food][:name])
     if @food.save
       render 'static/new_food', layout: false
       # respond_to do |format|

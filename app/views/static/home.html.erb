@@ -19,8 +19,15 @@
       <div class="col-sm-3">
         <ol id="food_list"></ol> 
         <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
-          <%= f.label :add_food %><br>
+          <%= f.label :name %><br>
           <%= f.text_field :name %><br>
+
+          <%= f.label :calories %><br>
+          <%= f.text_field :cals %><br>
+
+          <%= f.label :group %><br>
+          <%= f.collection_select :group_id, Group.all, :id, :name %><br>
+          
         <%= f.submit %>
         <% end %>
       </div>
