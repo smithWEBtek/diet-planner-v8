@@ -7,6 +7,7 @@
 
       <div class="col-sm-3">
         <ul id="celeb_list"></ul>
+        <div id="show_celeb"></div>
         <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
           <%= f.label :add_celeb %><br>
           <%= f.text_field :name %><br>
