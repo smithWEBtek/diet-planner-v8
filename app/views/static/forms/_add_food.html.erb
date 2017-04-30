@@ -1,0 +1,5 @@
+<%= form_for(food, url: foods_path, method: "POST") do |f| %>
+  <%= f.label :add_food %><br>
+  <%= f.text_field :name, autofocus: true %><br>
+<%= f.submit %>
+<% end %>

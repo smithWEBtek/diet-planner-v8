@@ -5,11 +5,7 @@
 <div><ol id="celeb_list"></ol></div>
 
 <div>
-   <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
-    <%= f.label :add_celeb %><br>
-    <%= f.text_field :name, autofocus: true %><br>
-  <%= f.submit %>
-  <% end %>
+ <%= render partial: 'static/forms/add_celeb', locals: { celeb: @celeb } %>
 </div>
 
 <hr>
@@ -62,8 +58,8 @@ Quote Index
 <hr>
 <div>
 
-  <h3>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
-  </h3>
+  <h4>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
+  </h4>
 
 </div>
 <p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."

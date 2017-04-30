@@ -25,7 +25,7 @@ class CelebsController < ApplicationController
   def create
     @celeb = Celeb.new(celeb_params)
     if @celeb.save
-      render 'celebs/new_celeb', layout: false
+      render 'static/new_celeb', layout: false
       # respond_to do |format|
       # 	format.html { redirect_to 'celebs/new_celeb' }
       # 	format.json { render json: @celeb }

@@ -1,4 +1,9 @@
 $(function(){
+	add_celeb();
+	
+}); 
+
+function add_celeb(){
   $("#new_celeb").on("submit", function(e){
 		url = this.action
   	data = {
@@ -13,8 +18,9 @@ $(function(){
   		success: function(response){
   		$("#celeb_name").val('')
   		$("#celeb_list").append(response)
+
   		 }
   	});
   	e.preventDefault();
   });
-}); 
+}
