@@ -24,10 +24,13 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      flash[:notice] = "Food created."
-      redirect_to food_path(@food)
+      render 'static/new_food', layout: false
+      # respond_to do |format|
+      #   format.html { redirect_to 'foods/new_food' }
+      #   format.json { render json: @food }
+      # end
     else
-      render :new
+      render 'foods/show'
     end
   end
 

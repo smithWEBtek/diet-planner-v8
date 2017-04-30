@@ -5,7 +5,11 @@ class StaticController < ApplicationController
     @celeb = Celeb.new
     @celebs = Celeb.all
     @food = Food.new
-    @foods = Food.all 
+    @foods = Food.all
+    @diet = Diet.new
+    @diets = Diet.all
+    @phrase = Phrase.new
+    @phrases = Phrase.all
     render :home
   end
 end
