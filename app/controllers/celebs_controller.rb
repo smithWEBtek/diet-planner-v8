@@ -23,7 +23,7 @@ class CelebsController < ApplicationController
   end
 
   def create
-    @celeb = Celeb.new(celeb_params)
+    @celeb = Celeb.find_or_create_by(celeb_params)
     if @celeb.save
       render 'static/new_celeb', layout: false
       # respond_to do |format|

@@ -34,6 +34,6 @@ Rails.application.routes.draw do
   post '/users/sign_up', to: 'users#create'
   post '/mealnames', to: 'mealnames#create'
 
-  resources :diets, :groups, :meals, :foods, :mealnames, :quotes, :celebs
+  resources :diets, :groups, :meals, :foods, :mealnames, :quotes, :celebs, :phrases
   resources :admin, only: [:new, :index]
 end

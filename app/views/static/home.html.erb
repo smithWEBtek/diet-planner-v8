@@ -25,6 +25,24 @@
         <% end %>
       </div>
 
+      <div class="col-sm-3">
+        <ol id="diet_list"></ol> 
+        <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
+          <%= f.label :add_diet %><br>
+          <%= f.text_field :name %><br>
+        <%= f.submit %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-3">
+        <ol id="phrase_list"></ol> 
+        <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
+          <%= f.label :add_phrase %><br>
+          <%= f.text_field :content %><br>
+        <%= f.submit %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

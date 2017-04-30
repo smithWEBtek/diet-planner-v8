@@ -22,7 +22,8 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = Food.new(food_params)
+    # @food = Food.new(food_params)
+    @food = Food.find_or_create_by(food_params)
     if @food.save
       render 'static/new_food', layout: false
       # respond_to do |format|
@@ -30,7 +31,7 @@ class FoodsController < ApplicationController
       #   format.json { render json: @food }
       # end
     else
-      render 'foods/show'
+      render 'foods/new'
     end
   end
 
