@@ -2,24 +2,32 @@
   <h1>Welcome to DietPlanner!</h1>
 <hr>
 
-<div>
-  <ol id="celeb_list"></ol>
-  <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
-    <%= f.label :add_celeb %><br>
-    <%= f.text_field :name %><br>
-  <%= f.submit %>
-  <% end %>
-</div>
 
-<div>
-  <ol id="food_list"></ol> 
-  <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
-    <%= f.label :add_food %><br>
-    <%= f.text_field :name %><br>
-  <%= f.submit %>
-  <% end %>
-</div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
 
+      <div class="col-sm-3">
+        <ol id="celeb_list"></ol>
+        <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
+          <%= f.label :add_celeb %><br>
+          <%= f.text_field :name %><br>
+        <%= f.submit %>
+        <% end %>
+      </div>
+
+      <div class="col-sm-3">
+        <ol id="food_list"></ol> 
+        <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
+          <%= f.label :add_food %><br>
+          <%= f.text_field :name %><br>
+        <%= f.submit %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 
