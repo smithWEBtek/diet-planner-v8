@@ -99,12 +99,14 @@ function add_phrase(){
 function indexesListeners(){
 	$(".indexes button").click(function(event){
 		event.stopImmediatePropagation();
+		var index = this.innerHTML.toLowerCase();
 		$.ajax({
 			type: "GET",
-			url: "/" + this.innerHTML.toLowerCase() + ".json",
+			url: "/" + index + ".json",
 			success: function(response){
 				var jsonStr = JSON.stringify(response);
-				$("#index_celebs").text(jsonStr);
+				var div = "#index_" + index;
+				$(div).text(jsonStr);
 			}
 		})
 	});
