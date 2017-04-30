@@ -103,8 +103,8 @@ function indexesListeners(){
 			type: "GET",
 			url: "/" + this.innerHTML.toLowerCase() + ".json",
 			success: function(response){
-
-				$("#index_celebs").text(response);
+				var jsonStr = JSON.stringify(response);
+				$("#index_celebs").text(jsonStr);
 			}
 		})
 	});
