@@ -73,7 +73,7 @@ function add_phrase(){
 		url = this.action
   	data = {
   		'authenticity_token':	$("input[name='authenticity_token']").val(),
-  		'phrase': {'name': $("#phrase_name").val()}
+  		'phrase': {'content': $("#phrase_content").val()}
   	}
   	e.stopImmediatePropagation();
   	$.ajax({
@@ -81,7 +81,7 @@ function add_phrase(){
   		url: url,
   		data: data,
   		success: function(response){
-  		$("#phrase_name").val('')
+  		$("#phrase_content").val('')
   		$("#phrase_list").append(response)
   		 }
   	});
