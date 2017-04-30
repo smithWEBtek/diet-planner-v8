@@ -19,6 +19,11 @@ function add_celeb(){
   		url: url,
   		data: data,
   		success: function(response){
+
+
+
+  		// <%= link_to response, url >
+
   		$("#celeb_name").val('')
   		$("#celeb_list").append(response)
   		 }
