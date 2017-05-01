@@ -47,8 +47,10 @@ class QuotesController < ApplicationController
       @quote = Quote.build_quote_params(params)
       # @quote = Quote.new(quote_params)
       if @quote.save
-        flash[:notice] = "Quote saved."
-        render :show
+        respond_to do |format|
+          format.html { render :show }
+          format.json { render json: @quote }
+      end
       else
         render :new
       end

@@ -127,7 +127,6 @@ function	showGroupFoods(e){
   $.getJSON(url, function(response){
   	var group = response;
   for (var i = group.foods.length - 1; i >= 0; i--) {
-  // $("#show_group_foods").append(group.foods[i].name + "<br>");
   $("#show_group_foods").append(group.foods[i].name + "<br>");
   }
 	});

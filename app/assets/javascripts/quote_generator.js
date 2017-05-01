@@ -1,6 +1,7 @@
 $(function(){
 	quotes();
 	quotesClear();
+	// listenForNewQuote();
 });
 
 function quotes(){
@@ -19,12 +20,54 @@ function quotes(){
 }
 
 function quotesClear(){
-	
 	$("#quotes_clear").on("click", function(e) {
-// debugger;
-
-	$("#response_area").html("");
-	// e.stopImmediatePropagation();
+		$.ajax({
+			type: 'get',
+			url: '/clear_quotes',
+		}).success(function(){
+			$("#response_area").html("");
+		});	
 	e.preventDefault();
+	});
+}
+
+function listenForNewQuote(){
+  	debugger; 
+	$(".response_area form.new_quote").on("click", function(e) {
+		new_quote();
+	});
+}
+
+function new_quote(){
+  $("form").on("submit", function(e){
+
+// 		url = '/quotes/'
+//   	data = {
+//   		'authenticity_token':	$("input[name='authenticity_token']").val(),
+//   		'quote': {
+//   			'celeb_id': $("#quote_celeb").val(),
+// 	  		'verb_id': $("#quote_verb").val(),
+// 	  		'adj_id': $("#quote_adj").val(),
+// 	  		'food_id': $("#quote_food").val(),
+// 	  		'diet_id': $("#quote_diet").val(),
+// 	  		'phrase_id': $("#quote_phrase").val()
+// 	  	}
+//   	}
+//   	e.stopImmediatePropagation();
+//   	$.ajax({
+//   		type: 'POST',
+//   		url: url,
+//   		data: data,
+//   		success: function(response){
+
+//   			// show the new quote, on home page, without redirect, (via ajax)
+//   		// $("#celeb_name").val('');
+//   		// $("#celeb_list").append(response);
+//   		// $(".show_celeb").show();
+//     //   attachListenerCeleb();
+//   		 }
+//   	});
+//   	e.preventDefault();
+//   });
 	});
 }
