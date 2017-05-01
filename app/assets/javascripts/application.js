@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require diet-planner
+//= require diet_planner
+//= require quote_generator
