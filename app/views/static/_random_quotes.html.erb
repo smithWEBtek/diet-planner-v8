@@ -8,16 +8,10 @@
   <i><br>-- Mom</i>
 </p>
 <p class="quote_generator_button">
-  <button id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
-  <span id="new_quote"></span>
-  
-  <button id="generate_random_quotes"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
-  <span id="quotes"></span>
-  
-  <button id=clear_quotes><%= link_to "Clear", clear_quotes_path %></button>  
-  
-  <button id="download_csv"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
-  <span id="show_csv"></span>
+  <button data-id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
+  <button data-id="generate"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
+  <button data-id="clear"><%= link_to "Clear", clear_quotes_path %></button>  
+  <button data-id="export_csv"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
 </p>
 <div id="celebrity_quotes"></div>
   <%= render partial: 'quotes/quotes', locals: { quotes: @quotes } %>

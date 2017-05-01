@@ -1,12 +1,14 @@
 $(function(){
-	addListenersButtons();
+	// addListenersButtons();
 });
 
 
 function addListenersButtons(){
 	$(".quote_generator_button").click(function(e){
-	alert("...ahh, you rang??")
+
+	// debugger
 	e.stopImmediatePropagation();
 	e.preventDefault();
+	console.log(e)
 	})
 }
