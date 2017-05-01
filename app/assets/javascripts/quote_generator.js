@@ -2,7 +2,6 @@ $(function(){
 	addListenersButtons();
 });
 
-
 function addListenersButtons(){
 	$(".quote_button").on("click", function(e) {
 	var url = e.target;
