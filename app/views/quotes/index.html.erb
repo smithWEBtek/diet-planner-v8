@@ -1,5 +1,9 @@
-<h3>Celebrity Quotes</h3>
-<div class='index_view'>
+<div>
+<% @quotes.each do |quote| %>
+  <%= quote.build_quote %><br> 
+<% end %>
+<br>
+<hr>
   <table>
     <tr align="left">
       <th>Edit</th>

@@ -4,8 +4,8 @@ class QuotesController < ApplicationController
     def random_quotes
       @quotes = Quote.build_random_quotes
       respond_to do |format|
-        format.html { render partial: 'quotes/quotes_random', locals: {quotes: @quotes}, layout: false }
-        # format.html { redirect_to root_path, layout: false }
+        # format.html { render partial: 'quotes/quotes_random', locals: {quotes: @quotes}, layout: false }
+        format.html { render 'quotes/index', layout: false }
         format.json { render json: random_quotes }
       end
     end
@@ -28,6 +28,7 @@ class QuotesController < ApplicationController
 
     def index
       @quotes = Quote.all
+      @random_quotes = ""
       respond_to do |format|
         format.html { render :index }
         format.json { render json: @quotes }
@@ -47,7 +48,7 @@ class QuotesController < ApplicationController
       # @quote = Quote.new(quote_params)
       if @quote.save
         flash[:notice] = "Quote saved."
-        redirect_to root_path
+        render :show
       else
         render :new
       end

@@ -1,8 +1,9 @@
 $(function(){
-	addListenersButtons();
+	quotes();
+	quotesClear();
 });
 
-function addListenersButtons(){
+function quotes(){
 	$(".quote_button").on("click", function(e) {
 	var url = e.target;
 	$.ajax({
@@ -11,9 +12,19 @@ function addListenersButtons(){
 		success: function(response){
 		$("#response_area").html(response);
 		}
-	})
+	});
 	e.stopImmediatePropagation();
 	e.preventDefault();
-	console.log(e)
-	})
+	});
+}
+
+function quotesClear(){
+	
+	$("#quotes_clear").on("click", function(e) {
+// debugger;
+
+	$("#response_area").html("");
+	// e.stopImmediatePropagation();
+	e.preventDefault();
+	});
 }
