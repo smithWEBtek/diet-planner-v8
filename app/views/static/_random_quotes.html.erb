@@ -1,49 +1,17 @@
 
 <div class="registration_bar">
-<h3>Celebrity Quotes</h3>
-<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."
-  <i><br>-- Confucius</i>
+<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."<i> -- Confucius</i>
 </p>
-<p>“That which is measured, improves”
-  <i><br>-- Mom</i>
+<p>“That which is measured, improves.”<i> -- Mom</i>
 </p>
-<p class="quote_generator_button">
-  <button data-id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
-  <button data-id="generate"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
+<p>
+  <button class="quote_button" data-id="new"><%= link_to "New Quote", new_quote_path %></button>
+  <button class="quote_button" data-id="generate"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
   <button data-id="clear"><%= link_to "Clear", clear_quotes_path %></button>  
-  <button data-id="export_csv"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
+  <button data-id="export"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
 </p>
 <div id="celebrity_quotes"></div>
   <%= render partial: 'quotes/quotes', locals: { quotes: @quotes } %>
-<h4>Quote Index</h4>
-<div class='index_view'>
-  <table>
-    <tr align="left">
-      <th>Edit</th>
-      <th>Delete</th>
-      <th>ID</th>
-      <th>Celeb</th>
-      <th>Verb</th>
-      <th>Adj</th>
-      <th>Food</th>
-      <th>Phrase</th>
-      <th>Diet</th>
-    </tr>
-    <% @quotes.each do |quote| %>
-    <tr>
-      <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-      <td><%= link_to 'Delete', quote_path(quote), :method => :delete, :confirm => 'Are you sure?' %></td>
-      <td><%= quote.id %></td>
-      <td><%= quote.celeb.name %></td>
-      <td><%= quote.verb.name %></td>
-      <td><%= quote.adj.name %></td>
-      <td><%= quote.food.name %></td>
-      <td><%= quote.phrase.content %></td>
-      <td><%= link_to quote.diet.name, diet_path(quote.diet) %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
 <hr>
 <div>
 </div>

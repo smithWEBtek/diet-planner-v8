@@ -2,7 +2,14 @@
   <h3>Welcome to DietPlanner!</h3> 
   <h4>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.</h4>
 <hr>
+
+<h4>Random Celebrity Quote Toy</h4>
 <%= render partial: 'static/random_quotes', local: { quotes: @quotes } %>
+
+<h4>Quote Index</h4>
+<%= render partial: 'quotes/quote_index', local: { quotes: @quotes } %>
+
+<div id="new_quote_form"></div>
 <hr>
 <div class="container">
   <div class="row">
