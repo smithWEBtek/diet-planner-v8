@@ -12,16 +12,19 @@ class Quote < ApplicationRecord
   end
 
   def self.build_random_quotes
+    @random_quotes = []
     5.times do
-      @quote = Quote.new
-      @quote.celeb = Celeb.find(rand(1..Celeb.all.count.to_s.to_i))
-      @quote.verb = Verb.find(rand(1..Verb.all.count.to_s.to_i))
-      @quote.adj = Adj.find(rand(1..Adj.all.count.to_s.to_i))
-      @quote.food = Food.find(rand(1..Food.all.count.to_s.to_i))
-      @quote.phrase = Phrase.find(rand(1..Phrase.all.count.to_s.to_i))
-      @quote.diet = Diet.find(rand(2..9))
-      @quote.save
+      quote = Quote.new
+      quote.celeb = Celeb.find(rand(1..Celeb.all.count.to_s.to_i))
+      quote.verb = Verb.find(rand(1..Verb.all.count.to_s.to_i))
+      quote.adj = Adj.find(rand(1..Adj.all.count.to_s.to_i))
+      quote.food = Food.find(rand(1..Food.all.count.to_s.to_i))
+      quote.phrase = Phrase.find(rand(1..Phrase.all.count.to_s.to_i))
+      quote.diet = Diet.find(rand(2..9))
+      quote.save
+      @random_quotes.push(quote)
     end
+    @random_quotes
   end
 
   def build_quote

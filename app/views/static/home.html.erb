@@ -1,5 +1,8 @@
 <div class="index_view">
-  <h3>Welcome to DietPlanner!</h3>
+  <h3>Welcome to DietPlanner!</h3> 
+  <h4>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.</h4>
+<hr>
+<%= render partial: 'static/random_quotes', local: { quotes: @quotes } %>
 <hr>
 <div class="container">
   <div class="row">
@@ -47,10 +50,12 @@
 <hr>
 <h4>Group/Foods: has_many relationship in information rendered via JSON and appended to the DOM</h4>
 <div class="groups">
-    <% @groups.each do |group| %>
-      <p data-id="<%= group.id %>"><%= link_to group.name, group_path(group) %></p>  
-    <% end %><br>
-  <hr><div id="show_group_foods"></div><hr>
+  <% @groups.each do |group| %>
+    <p data-id="<%= group.id %>"><%= link_to group.name, group_path(group) %></p>  
+  <% end %><br>
+  <hr>
+  <div id="show_group_foods"></div>
+  <hr>
 </div>
 <h4>Index resources rendered using jQuery and Active Model Serialization JSON backend</h4>
 <div class="indexes">
@@ -65,4 +70,3 @@
 </div>
 <hr>
 </div>
-<%= render partial: 'static/random_quotes', local: { quotes: @quotes } %>

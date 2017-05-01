@@ -122,20 +122,10 @@ function attachListenersGroups() {
 	});
 }
 
-    // var els = document.getElementsByClassName("pix");
-    // function handleClick(e) {
-    //   console.log(this);
-    // }
-    // for(var i=0 ; i < els.length ; i++){
-    //   els[i].addEventListener("click", handleClick, false);
-    // }
-
 function	showGroupFoods(e){	
   var url = '/groups/' + e;
   $.getJSON(url, function(response){
   	var group = response;
-// debugger;
-// console.log(group);
   for (var i = group.foods.length - 1; i >= 0; i--) {
   // $("#show_group_foods").append(group.foods[i].name + "<br>");
   $("#show_group_foods").append(group.foods[i].name + "<br>");

@@ -2,8 +2,11 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :destroy]
 
     def random_quotes
-      Quote.build_random_quotes
-      redirect_to root_path
+      random_quotes = Quote.build_random_quotes
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.json { render json: random_quotes }
+      end
     end
 
     def clear_quotes
