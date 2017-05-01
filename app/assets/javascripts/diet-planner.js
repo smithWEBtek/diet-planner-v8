@@ -30,43 +30,21 @@ function add_celeb(){
 }
 
 function attachListener(){
-	$("button.show_celeb").on("click", function(event) {
-  // showCeleb(event.target);
-	showCeleb(event.target);
-	});
+	$("button.show_celeb").on("click", function(e) {
+  e.stopImmediatePropagation();
+  showCeleb(e.target);
+  });
 };
 
 function showCeleb(e){ 
   var celeb_id = e.dataset.id;
   var url = '/celebs/' + celeb_id;
-  $.get(url, function(celeb){
+  $.getJSON(url, function(celeb){
 // debugger
-
-  $("#show_celeb").append(celeb);
-  // e.stopImmediatePropagation(); 
+  // var celebStr = celeb.stringify();
+  $("#show_celeb").append(celeb.name);
 });
 }
-
-  // $("#show_celeb").on("click", function(e){
-// debugger;
-	// $("#show_celeb").on("click", function(e){
-		// event.stopImmediatePropagation();
-	// 	var show = this.innerHTML.toLowerCase();
-	// 	$.ajax({
-	// 		type: "GET",
-	// 		url: "/" + index + ".json",
-	// 		success: function(response){
-	// 			var jsonStr = JSON.stringify(response);
-	// 			var div = "#index_" + index;
-	// 			$(div).text(jsonStr);
-	// 		}
-	// 	})
-	// });
-	// });
-		// e.preventDefault();
-		 
-
-
 
 function add_food(){
   $("#new_food").on("submit", function(e){
