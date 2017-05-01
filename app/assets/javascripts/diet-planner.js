@@ -122,6 +122,14 @@ function attachListenersGroups() {
 	});
 }
 
+    // var els = document.getElementsByClassName("pix");
+    // function handleClick(e) {
+    //   console.log(this);
+    // }
+    // for(var i=0 ; i < els.length ; i++){
+    //   els[i].addEventListener("click", handleClick, false);
+    // }
+
 function	showGroupFoods(e){	
   var url = '/groups/' + e;
   $.getJSON(url, function(response){
@@ -134,9 +142,6 @@ function	showGroupFoods(e){
   }
 	});
 }
-
-
-
 
 function indexesListeners(){
 	$(".indexes button").click(function(event){
@@ -154,6 +159,14 @@ function indexesListeners(){
 	});
 }
 
+function FoodConstructor(name, cals, group_id){
+  this.name = name;
+  this.cals = cals;
+  this.group_id = group_id;
+}
 
-
-
+function MealBuilder(mealname, foods, da){
+  this.mealname = mealname;
+  this.foods = foods; 
+  this.da = da
+}

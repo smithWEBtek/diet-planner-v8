@@ -4,7 +4,6 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
-
       <div class="col-sm-3">
         <ul id="celeb_list"></ul>
         <div id="show_celeb"></div>
@@ -14,23 +13,18 @@
         <%= f.submit %>
         <% end %>
       </div>
-
       <div class="col-sm-3">
         <ul id="food_list"></ul> 
         <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
           <%= f.label :name %><br>
           <%= f.text_field :name %><br>
-
           <%= f.label :group %><br>
           <%= f.collection_select :group_id, Group.all, :id, :name %><br>
-
           <%= f.label :calories %><br>
           <%= f.text_field :cals %><br>
-
         <%= f.submit %>
         <% end %>
       </div>
-
       <div class="col-sm-3">
         <ul id="diet_list"></ul> 
         <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
@@ -39,7 +33,6 @@
         <%= f.submit %>
         <% end %>
       </div>
-
       <div class="col-sm-3">
         <ul id="phrase_list"></ul> 
         <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
@@ -48,25 +41,17 @@
         <%= f.submit %>
         <% end %>
       </div>
-
     </div>
   </div>
 </div>
-
 <hr>
-
 <h4>Group/Foods: has_many relationship in information rendered via JSON and appended to the DOM</h4>
 <div class="groups">
-  <div class="col-lg-12">
     <% @groups.each do |group| %>
-      <p data-id="<%= group.id %>"><%= link_to group.name, group_path(group) %></p> 
+      <p data-id="<%= group.id %>"><%= link_to group.name, group_path(group) %></p>  
     <% end %><br>
-<hr>
-  <div id="show_group_foods"></div>
-  </div>
+  <hr><div id="show_group_foods"></div><hr>
 </div>
-
-
 <h4>Index resources rendered using jQuery and Active Model Serialization JSON backend</h4>
 <div class="indexes">
   <button>Celebs</button>
@@ -78,66 +63,6 @@
   <button>Phrases</button>
     <div id="index_phrases"></div>
 </div>
-
 <hr>
-
 </div>
-<div class="registration_bar">
-<h3>Celebrity Quotes</h3>
-<p>
-  <button id="new_quote"><%= link_to "New Quote", new_quote_path %></button>
-  <span id="new_quote"></span>
-  
-  <button id="generate_random_quotes"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
-  <span id="quotes"></span>
-  
-  <button id=clear_quotes><%= link_to "Clear", clear_quotes_path %></button>  
-  
-  <button id="download_csv"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
-  <span id="show_csv"></span>
-</p>
-<div id="celebrity_quotes"></div>
-  <%= render partial: 'quotes/quotes', locals: { quotes: @quotes } %>
-Quote Index
-<div class='index_view'>
-  <table>
-    <tr align="left">
-      <th>Edit</th>
-      <th>Delete</th>
-      <th>ID</th>
-      <th>Celeb</th>
-      <th>Verb</th>
-      <th>Adj</th>
-      <th>Food</th>
-      <th>Phrase</th>
-      <th>Diet</th>
-    </tr>
-    <% @quotes.each do |quote| %>
-    <tr>
-      <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-      <td><%= link_to 'Delete', quote_path(quote), :method => :delete, :confirm => 'Are you sure?' %></td>
-      <td><%= quote.id %></td>
-      <td><%= quote.celeb.name %></td>
-      <td><%= quote.verb.name %></td>
-      <td><%= quote.adj.name %></td>
-      <td><%= quote.food.name %></td>
-      <td><%= quote.phrase.content %></td>
-      <td><%= link_to quote.diet.name, diet_path(quote.diet) %></td>
-    </tr>
-    <% end %>
-  </table>
-</div>
-<hr>
-<div>
-
-  <h4>Your foods, calories, meals, diets, ups and downs in a supportive volunteer community.
-  </h4>
-
-</div>
-<p>"Man who stand on mountain, with mouth open, waiting for Roast Duck to fly in...have very long wait."
-  <i><br>-- Confucius</i>
-</p>
-
-<p>“That which is measured, improves”
-  <i><br>-- Mom</i>
-</p>
+<%= render partial: 'static/random_quotes', local: { quotes: @quotes } %>
