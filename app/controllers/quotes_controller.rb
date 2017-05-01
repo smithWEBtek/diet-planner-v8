@@ -4,7 +4,7 @@ class QuotesController < ApplicationController
     def random_quotes
       random_quotes = Quote.build_random_quotes
       respond_to do |format|
-        format.html { redirect_to root_path }
+        format.html { render partial: 'quotes/quotes_random', locals: {quotes: random_quotes}, layout: false }
         format.json { render json: random_quotes }
       end
     end

@@ -9,10 +9,17 @@
 <hr>
 
 <h4>Random Celebrity Quotes</h4>
+<p>
+  <button class="quote_button" data-id="new"><%= link_to "New Quote", new_quote_path %></button>
+  <button class="quote_button" data-id="generate"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
+  <button data-id="clear"><%= link_to "Clear", clear_quotes_path %></button>  
+  <button data-id="export"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
+</p>
+
 <%= render partial: 'quotes/quotes_random', locals: { quotes: @quotes } %>
 
 
-<div id="new_quote_form"></div>
+<div id="response_area" class="col-lg-12"></div>
 <hr>
 <div class="container">
   <div class="row">

@@ -10,8 +10,7 @@ function addListenersButtons(){
 		type: 'get',
 		url: url,
 		success: function(response){
-	// debugger;
-		$("#new_quote_form").html(response);
+		$("#response_area").append(response);
 		}
 	})
 	e.stopImmediatePropagation();

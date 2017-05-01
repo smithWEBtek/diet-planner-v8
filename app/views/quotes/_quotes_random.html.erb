@@ -1,10 +1,5 @@
 <div class="registration_bar">
-<p>
-  <button class="quote_button" data-id="new"><%= link_to "New Quote", new_quote_path %></button>
-  <button class="quote_button" data-id="generate"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
-  <button data-id="clear"><%= link_to "Clear", clear_quotes_path %></button>  
-  <button data-id="export"><%= link_to "CSV Export Quotes", export_quotes_csv_path %></button>
-</p>
+
 <div id="celebrity_quotes"></div>
 	<% quotes.each do |quote| %>
 		<%= quote.build_quote %><br>
