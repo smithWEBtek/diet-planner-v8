@@ -10,6 +10,7 @@ class StaticController < ApplicationController
     @diets = Diet.all
     @phrase = Phrase.new
     @phrases = Phrase.all
+    @groups = Group.all
     render :home
   end
 end
