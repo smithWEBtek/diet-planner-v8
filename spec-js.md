@@ -2,15 +2,37 @@
 
 Specs:
 - [x] Use jQuery for implementing new requirements
+example: 
+
 - [.] Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+example: 
+
 - [.] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
-- [ ] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
-- [ ] Include at least one link that loads or updates a resource without reloading the page.
+example: 
+
+- [.] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+example: 
+
+- [.] Include at least one link that loads or updates a resource without reloading the page.
+example: 
+
 - [ ] Translate JSON responses into js model objects.
+example: 
+
 - [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
+example: 
+
 
 Confirm
-- [ ] You have a large number of small Git commits
-- [ ] Your commit messages are meaningful
-- [ ] You made the changes in a commit that relate to the commit message
-- [ ] You don't include changes in a commit that aren't related to the commit message
+- [X] You have a large number of small Git commits
+example: 
+
+- [X] Your commit messages are meaningful
+example: 
+
+- [X] You made the changes in a commit that relate to the commit message
+example: 
+
+- [X] You don't include changes in a commit that aren't related to the commit message
+example: 
+

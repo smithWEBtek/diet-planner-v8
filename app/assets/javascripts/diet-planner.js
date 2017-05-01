@@ -128,7 +128,10 @@ function	showGroupFoods(e){
   	var group = response;
 // debugger;
 // console.log(group);
-  $("#show_group_foods").append(group.foods[0].name);
+  for (var i = group.foods.length - 1; i >= 0; i--) {
+  // $("#show_group_foods").append(group.foods[i].name + "<br>");
+  $("#show_group_foods").append(group.foods[i].name + "<br>");
+  }
 	});
 }
 
