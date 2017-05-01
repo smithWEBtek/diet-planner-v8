@@ -9,7 +9,7 @@ function addListenersButtons(){
 		type: 'get',
 		url: url,
 		success: function(response){
-		$("#response_area").append(response);
+		$("#response_area").html(response);
 		}
 	})
 	e.stopImmediatePropagation();

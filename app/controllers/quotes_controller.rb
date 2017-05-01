@@ -2,9 +2,10 @@ class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :destroy]
 
     def random_quotes
-      random_quotes = Quote.build_random_quotes
+      @quotes = Quote.build_random_quotes
       respond_to do |format|
-        format.html { render partial: 'quotes/quotes_random', locals: {quotes: random_quotes}, layout: false }
+        format.html { render partial: 'quotes/quotes_random', locals: {quotes: @quotes}, layout: false }
+        # format.html { redirect_to root_path, layout: false }
         format.json { render json: random_quotes }
       end
     end
@@ -13,6 +14,11 @@ class QuotesController < ApplicationController
       Quote.destroy_all
       ActiveRecord::Base.connection.reset_pk_sequence!('quotes')
       redirect_to root_path
+    end
+
+    def export_quotes_csv
+      @quotes = Quote.all
+      render '/quotes/index.csv.erb'
     end
 
     def new
@@ -27,11 +33,6 @@ class QuotesController < ApplicationController
         format.json { render json: @quotes }
         format.csv
       end
-    end
-
-    def export_quotes_csv
-      @quotes = Quote.all
-      render '/quotes/index.csv.erb'
     end
 
     def show
