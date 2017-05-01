@@ -52,16 +52,22 @@
     </div>
   </div>
 </div>
+
 <hr>
+
 <h4>Group/Foods: has_many relationship in information rendered via JSON and appended to the DOM</h4>
-<div class="indexes">
+<div class="groups">
   <div class="col-lg-12">
     <% @groups.each do |group| %>
-      <%= link_to group.name, group_path(group) %><br>  
-    <% end %>
+      <p data-id="<%= group.id %>"><%= link_to group.name, group_path(group) %></p>  
+    <% end %><br>
+<hr>
+<div id="show_group_foods"></div>
+<hr>
   </div>
 </div>
-<hr>
+
+
 <h4>Index resources rendered using jQuery and Active Model Serialization JSON backend</h4>
 <div class="indexes">
   <button>Celebs</button>
@@ -73,6 +79,8 @@
   <button>Phrases</button>
     <div id="index_phrases"></div>
 </div>
+
+<hr>
 
 </div>
 <div class="registration_bar">

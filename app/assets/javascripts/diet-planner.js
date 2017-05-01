@@ -4,6 +4,7 @@ $(function(){
 	add_diet();
 	add_phrase();
 	indexesListeners();
+	attachListenersGroups();
 }); 
 
 function add_celeb(){
@@ -22,14 +23,14 @@ function add_celeb(){
   		$("#celeb_name").val('');
   		$("#celeb_list").append(response);
   		$(".show_celeb").show();
-      attachListener();
+      attachListenerCeleb();
   		 }
   	});
   	e.preventDefault();
   });
 }
 
-function attachListener(){
+function attachListenerCeleb(){
 	$("button.show_celeb").on("click", function(e) {
   e.stopImmediatePropagation();
   showCeleb(e.target);
@@ -40,8 +41,6 @@ function showCeleb(e){
   var celeb_id = e.dataset.id;
   var url = '/celebs/' + celeb_id;
   $.getJSON(url, function(celeb){
-// debugger
-  // var celebStr = celeb.stringify();
   $("#show_celeb").append(celeb.name);
 });
 }
@@ -114,6 +113,27 @@ function add_phrase(){
   	e.preventDefault();
   });
 }
+
+function attachListenersGroups() {	
+	$(".groups p").on("click", function(e) {
+ 		e.stopImmediatePropagation();
+		e.preventDefault();
+		showGroupFoods($(this)["0"].attributes["0"].nodeValue);
+	});
+}
+
+function	showGroupFoods(e){	
+  var url = '/groups/' + e;
+  $.getJSON(url, function(response){
+  	var group = response;
+// debugger;
+// console.log(group);
+  $("#show_group_foods").append(group.foods[0].name);
+	});
+}
+
+
+
 
 function indexesListeners(){
 	$(".indexes button").click(function(event){
