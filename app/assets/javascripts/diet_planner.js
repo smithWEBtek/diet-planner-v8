@@ -3,7 +3,7 @@ $(function(){
 	add_food();
 	add_diet();
 	add_phrase();
-	indexesListeners();
+	indexGroupsFoodsDiets();
 	attachListenersGroups();
 }); 
 

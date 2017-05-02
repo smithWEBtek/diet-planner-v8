@@ -17,7 +17,7 @@ function	showGroupFoods(e){
 	});
 }
 
-function indexesListeners(){
+function indexGroupsFoodsDiets(){
 	$(".indexes button").click(function(event){
 		event.stopImmediatePropagation();
 		var index = this.innerHTML.toLowerCase();
@@ -32,3 +32,31 @@ function indexesListeners(){
 		})
 	});
 }
+ 
+function CelebrityMeal(user, celeb, food, phrase){
+	this.user = user;
+	this.celeb = celeb;
+	this.food = food;
+	this.phrase = phrase;
+}
+
+CelebrityMeal.prototype.sayPhrase = function(){
+ return (this.user + " dined on " + this.food + " with " + this.celeb + " and said, \"" + this.phrase + "\"" + ".");
+}
+ 
+// var lunch1 = new CelebrityMeal("Max", "Louis CK", "burgers", "Dennys", "you gonna eat that?");
+// lunch1.sayPhrase();
+
+// first the user creates new celebs, foods, and phrases
+// js function chooses from them randombly and produces instances of CelebrityMeal
+// each instance then calls 'sayPhrase'
+// result is injected into the DOM
+
+// lunch1.sayPhrase();
+
+// when a special button is clicked
+
+
+
+
+
