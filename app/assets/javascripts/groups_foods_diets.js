@@ -70,7 +70,7 @@ class CelebQuote extends CelebrityMeal {
 }
  
 var lunch1 = new CelebrityMeal("Max", "Louis CK", "burgers", "you gonna eat that?");
-lunch1.sayHello();
+lunch1.sayHello;
 
 
 // first the user creates new celebs, foods, and phrases
