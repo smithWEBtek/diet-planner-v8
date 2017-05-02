@@ -16,3 +16,4 @@
 //= require bootstrap-sprockets
 //= require diet_planner
 //= require quote_generator
+//= require groups_foods_diets

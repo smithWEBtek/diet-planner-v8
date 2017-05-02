@@ -1,7 +1,7 @@
 $(function(){
 	quotes();
 	quotesClear();
-	// listenForNewQuote();
+	listenForNewQuote();
 });
 
 function quotes(){
@@ -32,15 +32,16 @@ function quotesClear(){
 }
 
 function listenForNewQuote(){
-  	debugger; 
 	$(".response_area form.new_quote").on("click", function(e) {
 		new_quote();
 	});
 }
 
 function new_quote(){
-  $("form").on("submit", function(e){
-
+  // $("form").on("submit", function(e){
+	$(".response_area form.new_quote").submit();
+  	debugger; 
+ 
 // 		url = '/quotes/'
 //   	data = {
 //   		'authenticity_token':	$("input[name='authenticity_token']").val(),
@@ -67,7 +68,6 @@ function new_quote(){
 //     //   attachListenerCeleb();
 //   		 }
 //   	});
-//   	e.preventDefault();
-//   });
-	});
+ 	e.stopImmediatePropagation();
+	e.preventDefault();
 }
