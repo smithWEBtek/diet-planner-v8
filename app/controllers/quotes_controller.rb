@@ -45,14 +45,14 @@ class QuotesController < ApplicationController
 
     def create
       @quote = Quote.build_quote_params(params)
-      # @quote = Quote.new(quote_params)
       if @quote.save
+        @quote_sentence = @quote.build_quote
         respond_to do |format|
-          format.html { render :show }
+          format.html { render :show, layout: false }
           format.json { render json: @quote }
       end
       else
-        render :new
+        redirect_to root_path
       end
     end
 

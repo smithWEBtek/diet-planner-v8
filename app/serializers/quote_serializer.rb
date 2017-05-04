@@ -3,7 +3,7 @@ class QuoteSerializer < ActiveModel::Serializer
   belongs_to :celeb
   belongs_to :verb
   belongs_to :adj
-  belongs_to :food, serializer: FoodGroupSerializer
   belongs_to :phrase
+  belongs_to :food, serializer: FoodGroupSerializer
   belongs_to :diet, serializer: DietUserSerializer
 end
