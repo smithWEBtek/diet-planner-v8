@@ -1,6 +1,6 @@
 $(function(){
 	userIndex();
-	// foodIndex();
+	foodIndex();
 	// foodGroupIndex();
 	// mealIndex();
 	// mealNamesIndex();
@@ -30,6 +30,25 @@ function userIndex(){
 	});
 }
 
+function foodIndex(){
+	$("span#foods_index").on("click", function(e){
+		e.stopImmediatePropagation();
+		e.preventDefault();
+	$.ajax({
+		type: 'get',
+		url: '/api_foods.json',
+		dataType: 'json',
+		success: function(response){
+		for (var i = response.length - 1; i >= 0; i--) {
+			var name = response[i].name;
+			var group = response[i].group.name;
+			var food = name + "  "+ group + "<br>";
+			$("#food").append(food);
+				}
+			}
+		});
+	});
+}
 
 // function foodIndex(){
 // 	// listen to a link
