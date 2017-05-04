@@ -1,5 +1,5 @@
 function attachListenersGroups() {	
-	$(".groups p").on("click", function(e) {
+	$(".groups span").on("click", function(e) {
  		e.stopImmediatePropagation();
 		e.preventDefault();
 		showGroupFoods($(this)["0"].attributes["0"].nodeValue);
@@ -11,7 +11,7 @@ function	showGroupFoods(e){
   $.getJSON(url, function(response){
   	var group = response;
   for (var i = group.foods.length - 1; i >= 0; i--) {
-  $("#show_group_foods").append(group.foods[i].name + "<br>");
+  $("#show_group_foods").append(group.foods[i].name + ', ');
   }
 	});
 }
