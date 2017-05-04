@@ -11,7 +11,7 @@ DATA_diets = {
     ["Lumberjack"],
     ["Vampire"],
     ["Junk"],
-    ["Diet deleted, please choose a new diet."]
+    ["Deleted--choose diet"]
   ]
 }
 
