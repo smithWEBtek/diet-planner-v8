@@ -1,4 +1,3 @@
-
 function attachListenersGroups() {	
 	$(".groups p").on("click", function(e) {
  		e.stopImmediatePropagation();
@@ -33,16 +32,16 @@ function indexGroupsFoodsDiets(){
 	});
 }
  
-function CelebrityMeal(user, celeb, food, phrase){
-	this.user = user;
-	this.celeb = celeb;
-	this.food = food;
-	this.phrase = phrase;
-}
+// function CelebrityMeal(user, celeb, food, phrase){
+// 	this.user = user;
+// 	this.celeb = celeb;
+// 	this.food = food;
+// 	this.phrase = phrase;
+// }
 
-CelebrityMeal.prototype.sayPhrase = function(){
- console.log(this.user + " dined on " + this.food + " with " + this.celeb + " and said, \"" + this.phrase + "\"" + ".");
-}
+// CelebrityMeal.prototype.sayPhrase = function(){
+//  console.log(this.user + " dined on " + this.food + " with " + this.celeb + " and said, \"" + this.phrase + "\"" + ".");
+// }
  
 // class MyCelebrityMeal {
 // 	constructor(user, celeb, food, phrase){
@@ -62,15 +61,15 @@ CelebrityMeal.prototype.sayPhrase = function(){
 // lunch1.sayPhrase();
 
 
-class CelebQuote extends CelebrityMeal {
-    sayHello() {
-      super.sayHello()
-      console.log("I am a pretty big deal!");
-    }
-}
+// class CelebQuote extends CelebrityMeal {
+//     sayHello() {
+//       super.sayHello()
+//       console.log("I am a pretty big deal!");
+//     }
+// }
  
-var lunch1 = new CelebrityMeal("Max", "Louis CK", "burgers", "you gonna eat that?");
-lunch1.sayHello;
+// var lunch1 = new CelebrityMeal("Max", "Louis CK", "burgers", "you gonna eat that?");
+// lunch1.sayHello;
 
 
 // first the user creates new celebs, foods, and phrases

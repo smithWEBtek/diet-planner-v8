@@ -20,9 +20,8 @@ function add_celeb(){
   		url: url,
   		data: data,
   		success: function(response){
-  		$("#celeb_name").val('');
-  		$("#celeb_list").append(response);
-  		$(".show_celeb").show();
+      $("#celeb_name").val('');
+      $("#celeb_list").append(data.celeb.name+ "<br>");
       attachListenerCeleb();
   		 }
   	});
@@ -36,14 +35,6 @@ function attachListenerCeleb(){
   showCeleb(e.target);
   });
 };
-
-function showCeleb(e){ 
-  var celeb_id = e.dataset.id;
-  var url = '/celebs/' + celeb_id;
-  $.getJSON(url, function(celeb){
-  $("#show_celeb").append(celeb.name);
-});
-}
 
 function add_food(){
   $("#new_food").on("submit", function(e){

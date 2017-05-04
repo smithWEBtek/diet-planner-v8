@@ -18,38 +18,44 @@
 <h4>Create new Celebs, Foods, Diets, Phrases</h4>
     <div class="col-lg-12">
       <div class="col-sm-3">
+      <h4>Add celeb</h4>
         <ul id="celeb_list"></ul>
         <div id="show_celeb"></div>
         <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
-          <%= f.label :add_celeb %><br>
+          <%= f.label :name %>
           <%= f.text_field :name %><br>
         <%= f.submit %>
         <% end %>
       </div>
       <div class="col-sm-3">
+      <h4>Add food</h4>
         <ul id="food_list"></ul> 
         <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
-          <%= f.label :add_food %><br>
+          <%= f.label :name %>
           <%= f.text_field :name %><br>
-          <%= f.label :group %><br>
+
+          <%= f.label :group %>
           <%= f.collection_select :group_id, Group.all, :id, :name %><br>
-          <%= f.label :calories %><br>
-          <%= f.text_field :cals %><br>
+          <%= f.label :cals %>
+          <%= f.text_field :cals, size: 5 %><br>
+
         <%= f.submit %>
         <% end %>
       </div>
       <div class="col-sm-3">
+      <h4>Add diet</h4>
         <ul id="diet_list"></ul> 
         <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
-          <%= f.label :add_diet %><br>
+          <%= f.label :name %>
           <%= f.text_field :name %><br>
         <%= f.submit %>
         <% end %>
       </div>
       <div class="col-sm-3">
+      <h4>Add phrase</h4>
         <ul id="phrase_list"></ul> 
         <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
-          <%= f.label :add_phrase %><br>
+          <%= f.label :content %>
           <%= f.text_field :content %><br>
         <%= f.submit %>
         <% end %>

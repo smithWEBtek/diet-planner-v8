@@ -5,14 +5,14 @@ class FoodsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.html { render :index }
+      format.html { render :index, layout: false }
       format.json { render json: @foods }
     end
   end
   
   def show
      respond_to do |format|
-      format.html { render :show }
+      format.html { render :show, layout: false }
       format.json { render json: @food }
     end
   end
@@ -24,13 +24,12 @@ class FoodsController < ApplicationController
   def create
     @food = Food.find_or_create_by(food_params)
     if @food.save
-      render 'static/new_food', layout: false
-      # respond_to do |format|
-      #   format.html { redirect_to 'foods/new_food' }
-      #   format.json { render json: @food }
-      # end
+      respond_to do |format|
+        format.html { render :show, layout: false }
+        format.json { render json: @food }
+      end
     else
-      render 'foods/new'
+     redirect_to foods_path
     end
   end
 
