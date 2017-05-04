@@ -16,3 +16,4 @@
 //= require diet_planner
 //= require home
 //= require groups_foods_diets
+//= require show_and_index

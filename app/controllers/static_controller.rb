@@ -11,6 +11,7 @@ class StaticController < ApplicationController
     @phrase = Phrase.new
     @phrases = Phrase.all
     @groups = Group.all
+    @users = User.all
     render :home
   end
 end

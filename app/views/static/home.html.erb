@@ -1,6 +1,11 @@
 <div class="index_view">
   <h3>Welcome to DietPlanner!</h3> 
+  <div id="index_json"></div>
+  <div id="show_json"></div>
 </div>
+
+<%= render partial: 'admin/users_index', locals: { users: @users } %>
+
 <h4>Random Celebrity Quotes</h4>
   <ul>
     <li>'Generate 5 new quotes' at random; includes existing and items you add below..</li>
