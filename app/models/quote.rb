@@ -20,7 +20,7 @@ class Quote < ApplicationRecord
       quote.adj = Adj.find(rand(1..Adj.all.count.to_s.to_i))
       quote.food = Food.find(rand(1..Food.all.count.to_s.to_i))
       quote.phrase = Phrase.find(rand(1..Phrase.all.count.to_s.to_i))
-      quote.diet = Diet.find(rand(2..9))
+      quote.diet = Diet.find(rand(2..Diet.all.count.to_s.to_i))
       quote.save
       @random_quotes.push(quote)
     end
