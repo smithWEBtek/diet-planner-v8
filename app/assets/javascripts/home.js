@@ -1,24 +1,42 @@
 $(function(){
-	quotes();
+	quotesJSON();
+	quotesHTML();
 	quotesClear();
 	listenForNewQuote();
 });
 
-function quotes(){
-	$(".quote_button").on("click", function(e) {
-	var url = e.target;
+function quotesJSON(){
+	$("#random_json_quotes").on("click", function(e) {
 	$.ajax({
 		type: 'get',
-		url: url,
+		url: '/random_quotes',
 		dataType: 'json',
 		success: function(response){
-		$("#response_area").html("<h5>Random quotes: </h5><br>"+ "<li>" + response + "</li>");
+		for (var i = response.length - 1; i >= 0; i--) {
+			$("#response_area").append(response[i] + "<br>");
+			}
 		}
 	});
 	e.stopImmediatePropagation();
 	e.preventDefault();
 	});
 }
+
+function quotesHTML(){
+	$("#random_html_quotes").on("click", function(e) {
+	$.ajax({
+		type: 'get',
+		url: '/random_quotes',
+		dataType: 'html',
+		success: function(response){
+		$("#response_area").text("")
+				$("#response_area").append(response);
+			}
+		});
+	e.stopImmediatePropagation();
+	e.preventDefault();
+	});
+};
 
 function quotesClear(){
 	$("#quotes_clear").on("click", function(e) {

@@ -3,9 +3,14 @@ class QuotesController < ApplicationController
 
     def random_quotes
       @quotes = Quote.build_random_quotes
+      @quote_sentences = []
+      @quotes.each do |quote|
+        @quote_sentences.push(quote.build_quote)
+      end
+      @quote_sentences
       respond_to do |format|
         format.html { render 'quotes/index', layout: false }
-        format.json { render json: @quotes }
+        format.json { render json: @quote_sentences }
       end
     end
 

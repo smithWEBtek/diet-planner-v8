@@ -1,8 +1,6 @@
 <div class="index_view">
   <h3>Welcome to DietPlanner!</h3> 
 </div>
-<hr>
-
 <h4>Random Celebrity Quotes</h4>
   <ul>
     <li>'Generate 5 new quotes' at random; includes existing and items you add below..</li>
@@ -11,74 +9,75 @@
     <li>Export to CSV, so you can take your quotes with you.</li>
   </ul>
 <p>
-  <button class="quote_button"><%= link_to "Generate 5 Random Quotes", random_quotes_path %></button>
+  <button id="random_json_quotes"><%= link_to "Random JSON Quotes", random_quotes_path %></button>
+  <button id="random_html_quotes"><%= link_to "Random HTML Quotes", random_quotes_path %></button>
   <button id="new_quote_button"><%= link_to "New Quote", new_quote_path %></button>
   <button id="quotes_clear"><%= link_to "Clear Quotes", clear_quotes_path %></button>  
   <button id="export"><%= link_to "Export Quotes to CSV", export_quotes_csv_path %></button>
 </p>
-  <ul>
-    <div id="response_area" class="col-lg-12">
-    <li></li>
-  </ul>
-</div>
+<div id="response_area" class="col-lg-12"></div>
 <hr>
+
 <div class="container">
   <div class="row">
-<h4>Create new Celebs, Foods, Diets, Phrases</h4>
-<ul>
-  <li>Creates new celebs, foods, diets, phrases.</li>
-  <li>These are saved to the Database and will appear in randomly generated quotes above. </li>
-  <li>The usual CRUD paths are available as well, upon 'submit', for any of these. </li>
-  <li>Lastly, this data is saved via AJAX, but is not using JSON serialization.</li>
-</ul>
     <div class="col-lg-12">
-      <div class="col-sm-3">
-      <h4>Add celeb</h4>
-        <ul id="celeb_list"></ul>
-        <div id="show_celeb"></div>
-        <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name, size: 15 %><br>
-        <%= f.submit %>
-        <% end %>
-      </div>
-      <div class="col-sm-3">
-      <h4>Add food</h4>
-        <ul id="food_list"></ul> 
-        <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name, size: 15 %><br>
+      <h4>Create new Celebs, Foods, Diets, Phrases</h4>
+      <ul>
+        <li>Creates new celebs, foods, diets, phrases.</li>
+        <li>These are saved to the Database and will appear in randomly generated quotes above. </li>
+        <li>The usual CRUD paths are available as well, upon 'submit', for any of these. </li>
+        <li>Lastly, this data is saved via AJAX, but is not using JSON serialization.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+    <h4>Add celeb</h4>
+      <ul id="celeb_list"></ul>
+      <div id="show_celeb"></div>
+      <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, size: 15 %><br>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+    <h4>Add food</h4>
+      <ul id="food_list"></ul> 
+      <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, size: 15 %><br>
 
-          <%= f.label :group %>
-          <%= f.collection_select :group_id, Group.all, :id, :name %><br>
-          <%= f.label :cals %>
-          <%= f.text_field :cals, size: 5 %><br>
+        <%= f.label :group %>
+        <%= f.collection_select :group_id, Group.all, :id, :name %><br>
+        <%= f.label :cals %>
+        <%= f.text_field :cals, size: 5 %><br>
 
-        <%= f.submit %>
-        <% end %>
-      </div>
-      <div class="col-sm-3">
-      <h4>Add diet</h4>
-        <ul id="diet_list"></ul> 
-        <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
-          <%= f.label :name %>
-          <%= f.text_field :name, size: 15 %><br>
-        <%= f.submit %>
-        <% end %>
-      </div>
-      <div class="col-sm-3">
-      <h4>Add phrase</h4>
-        <ul id="phrase_list"></ul> 
-        <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
-          <%= f.label :content %>
-          <%= f.text_area :content, size: 15 %><br>
-        <%= f.submit %>
-        <% end %>
-      </div>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+    <h4>Add diet</h4>
+      <ul id="diet_list"></ul> 
+      <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, size: 15 %><br>
+      <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-sm-3">
+    <h4>Add phrase</h4>
+      <ul id="phrase_list"></ul> 
+      <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
+        <%= f.label :content %>
+        <%= f.text_area :content, size: 15 %><br>
+      <%= f.submit %>
+      <% end %>
     </div>
   </div>
 </div>
 <hr>
+
 <h4>Group/Foods: has_many relationship in information rendered via JSON and appended to the DOM</h4>
 <div class="groups">
   <% @groups.each do |group| %>
@@ -88,14 +87,13 @@
   <div id="show_group_foods"></div>
   <hr>
 </div>
+
 <h4>Index resources rendered using jQuery and Active Model Serialization JSON backend</h4>
 <div class="indexes">
   <button>Celebs</button>
     <div id="index_celebs"></div>
   <button>Foods</button>
-    <div id="index_foods"></div>
+    <div id="`"></div>
   <button>Diets</button>
     <div id="index_diets"></div>
-</div>
-<hr>
 </div>
