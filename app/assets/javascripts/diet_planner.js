@@ -19,7 +19,7 @@ function add_celeb(){
   		type: 'POST',
   		url: url,
   		data: data,
-  		success: function(response){
+  		success: function(){
       $("#celeb_name").val('');
       $("#celeb_list").append(data.celeb.name+ "<br>");
       attachListenerCeleb();
@@ -28,13 +28,6 @@ function add_celeb(){
   	e.preventDefault();
   });
 }
-
-function attachListenerCeleb(){
-	$("button.show_celeb").on("click", function(e) {
-  e.stopImmediatePropagation();
-  showCeleb(e.target);
-  });
-};
 
 function add_food(){
   $("#new_food").on("submit", function(e){
@@ -52,11 +45,11 @@ function add_food(){
       type: 'POST',
       url: url,
       data: data,
-      success: function(response){
+      success: function(){
       $("#food_name").val('')
       $("#food_cals").val('')
       $("#food_group_id").val('No group chosen')
-      $("#food_list").append(response)
+      $("#food_list").append(data.food.name + "<br>")
        }
     });
     e.preventDefault();
