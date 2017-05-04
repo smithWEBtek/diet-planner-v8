@@ -26,7 +26,7 @@ class FoodsController < ApplicationController
     @food = Food.find_or_create_by(food_params)
     if @food.save
       respond_to do |format|
-        format.html { render :show, layout: false }
+        format.html { render :show }
         format.json { render json: @food }
       end
     else

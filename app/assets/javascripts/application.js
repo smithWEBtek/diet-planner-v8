@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require diet_planner
-//= require quote_generator
+//= require home
 //= require groups_foods_diets
