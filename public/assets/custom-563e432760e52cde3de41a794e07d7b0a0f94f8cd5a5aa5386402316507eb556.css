@@ -1,0 +1,63 @@
+/* line 2, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 310px;
+}
+
+/* line 3, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+table td {
+  border: solid 1px #fab;
+  width: 100px;
+  word-wrap: break-word;
+}
+
+/* line 6, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 12, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.index_view {
+  font-weight: bold;
+  background: LightGray;
+}
+
+/* line 18, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.nav_bar {
+  font-weight: bold;
+  background: LightBlue;
+}
+/* line 21, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.nav_bar:hover {
+  background: DarkCyan;
+}
+
+/* line 26, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.registration_bar {
+  font-weight: bold;
+  background: LightBlue;
+}
+/* line 29, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.registration_bar:hover {
+  background: DarkCyan;
+}
+
+/* line 34, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.admin {
+  font-weight: bold;
+  background: LightPink;
+}
+/* line 37, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.admin:hover {
+  background: DarkCyan;
+}
+
+/* line 42, /Users/BradSmith/Development/aa/diet-planner-v8/app/assets/stylesheets/custom.css.scss */
+.flash_style {
+  font-weight: bold;
+  color: #cc3300;
+  font-style: italic;
+}

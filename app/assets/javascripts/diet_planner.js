@@ -89,9 +89,9 @@ function add_phrase(){
   		type: 'POST',
   		url: url,
   		data: data,
-  		success: function(response){
+  		success: function(){
   		$("#phrase_content").val('')
-  		$("#phrase_list").append(response)
+  		$("#phrase_list").append(data.phrase.content + "<br>")
   		 }
   	});
   	e.preventDefault();
