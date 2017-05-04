@@ -2,7 +2,7 @@ DATA_diets = {
   :diet_keys =>
     ["name"],
   :diets => [
-    ["Choose a diet"],
+    ["Choose diet"],
     ["Vegan"],
     ["Low-Carb"],
     ["Balanced Protein-Carb"],
@@ -29,7 +29,7 @@ DATA_groups = {
   :group_keys =>
     ["name"],
   :groups => [
-    ["No group chosen"], #1
+    ["Choose group"], #1
     ["Vegetables"],     #2
     ["Nuts"],           #3
     ["Fruits"],         #4

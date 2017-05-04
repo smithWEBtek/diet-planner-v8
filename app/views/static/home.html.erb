@@ -23,7 +23,7 @@
         <div id="show_celeb"></div>
         <%= form_for(@celeb, url: celebs_path, method: "POST") do |f| %>
           <%= f.label :name %>
-          <%= f.text_field :name %><br>
+          <%= f.text_field :name, size: 15 %><br>
         <%= f.submit %>
         <% end %>
       </div>
@@ -32,7 +32,7 @@
         <ul id="food_list"></ul> 
         <%= form_for(@food, url: foods_path, method: "POST") do |f| %>
           <%= f.label :name %>
-          <%= f.text_field :name %><br>
+          <%= f.text_field :name, size: 15 %><br>
 
           <%= f.label :group %>
           <%= f.collection_select :group_id, Group.all, :id, :name %><br>
@@ -47,7 +47,7 @@
         <ul id="diet_list"></ul> 
         <%= form_for(@diet, url: diets_path, method: "POST") do |f| %>
           <%= f.label :name %>
-          <%= f.text_field :name %><br>
+          <%= f.text_field :name, size: 15 %><br>
         <%= f.submit %>
         <% end %>
       </div>
@@ -56,7 +56,7 @@
         <ul id="phrase_list"></ul> 
         <%= form_for(@phrase, url: phrases_path, method: "POST") do |f| %>
           <%= f.label :content %>
-          <%= f.text_field :content %><br>
+          <%= f.text_field :content, size: 15 %><br>
         <%= f.submit %>
         <% end %>
       </div>
