@@ -23,15 +23,14 @@ class DietsController < ApplicationController
   end
 
   def create
-    @diet = Diet.find_or_create_by(diet_params)
+    @diet = Diet.find_or_create_by(name: diet_params[:name])
     if @diet.save
-      render 'static/new_diet', layout: false
-      # respond_to do |format|
-      #   format.html { redirect_to 'diets/new_diet' }
-      #   format.json { render json: @diet }
-      # end
+      respond_to do |format|
+        format.html { redirect_to diet_path(@diet), layout: false }
+        format.json { render json: @diet }
+      end
     else
-      render 'diets/show'
+      redirect_to root_path
     end
   end
 

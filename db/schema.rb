@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 20170429005231) do
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.integer  "phrase_id"
     t.integer  "celeb_id"
     t.integer  "verb_id"
-    t.integer  "food_id"
     t.integer  "adj_id"
+    t.integer  "food_id"
     t.integer  "diet_id"
+    t.integer  "phrase_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
