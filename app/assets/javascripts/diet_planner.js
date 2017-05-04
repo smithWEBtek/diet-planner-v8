@@ -68,9 +68,9 @@ function add_diet(){
   		type: 'POST',
   		url: url,
   		data: data,
-  		success: function(response){
+  		success: function(){
   		$("#diet_name").val('')
-  		$("#diet_list").append(response)
+  		$("#diet_list").append(data.diet.name + "<br>")
   		 }
   	});
   	e.preventDefault();
