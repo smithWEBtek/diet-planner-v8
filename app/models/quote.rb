@@ -8,6 +8,8 @@ class Quote < ApplicationRecord
   validates :celeb_id, :verb_id, :adj_id, :food_id, :diet_id, :phrase_id, presence: true
 
   def random_quotes
+    binding.pry
+    
     build_random_quotes
   end
 

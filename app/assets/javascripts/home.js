@@ -10,8 +10,12 @@ function quotes(){
 	$.ajax({
 		type: 'get',
 		url: url,
+		dataType: 'json',
 		success: function(response){
-		$("#response_area").html(response);
+debugger;
+
+
+		$("#response_area").html("<li>" + response + "</li>");
 		}
 	});
 	e.stopImmediatePropagation();

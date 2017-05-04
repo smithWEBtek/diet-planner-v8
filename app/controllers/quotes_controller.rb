@@ -6,7 +6,7 @@ class QuotesController < ApplicationController
       respond_to do |format|
         # format.html { render partial: 'quotes/quotes_random', locals: {quotes: @quotes}, layout: false }
         format.html { render 'quotes/index', layout: false }
-        format.json { render json: random_quotes }
+        format.json { render json: @quotes }
       end
     end
 
