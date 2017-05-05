@@ -83,6 +83,14 @@ class AdminController < ApplicationController
     end
   end
 
+  def api_groups
+    @groups = Group.all
+    respond_to do |format|
+      format.html { render 'admin/index_groups' }
+      format.json { render json: @groups }
+    end
+  end
+
   private
     def authorize_admin
       return unless !current_user.admin?
