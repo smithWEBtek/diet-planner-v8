@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require diet_planner
+//= require add_celeb_food_diet_phrase
 //= require quotes
-//= require groups_foods_diets
-//= require show_and_index
+//= require index_groups_foods_diets
+//= require index_and_show
