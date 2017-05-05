@@ -31,7 +31,7 @@ class AdminController < ApplicationController
     # @logs = Log.all
     # @groups = Group.all
     # @foods = Food.all
-    # @meals = Meal.all
+    @meals = Meal.all
 
     # render 'admin/index'
   end
@@ -47,7 +47,7 @@ class AdminController < ApplicationController
   def api_users
     @users = User.all
     respond_to do |format|
-      format.html { render 'admin/index' }
+      format.html { render 'admin/index_users' }
       format.json { render json: @users }
     end
   end
@@ -55,7 +55,7 @@ class AdminController < ApplicationController
   def api_logs
     @logs = Log.all
     respond_to do |format|
-      format.html { render 'admin/index' }
+      format.html { render 'admin/index_logs' }
       format.json { render json: @logs }
     end
   end
@@ -63,7 +63,7 @@ class AdminController < ApplicationController
   def api_foods
     @foods = Food.all
     respond_to do |format|
-      format.html { render 'admin/index' }
+      format.html { render 'admin/index_foods' }
       format.json { render json: @foods }
     end
   end
@@ -71,7 +71,7 @@ class AdminController < ApplicationController
   def api_meals
     @meals = Meal.all
     respond_to do |format|
-      format.html { render 'admin/index' }
+      format.html { render 'admin/index_meals' }
       format.json { render json: @meals }
     end
   end

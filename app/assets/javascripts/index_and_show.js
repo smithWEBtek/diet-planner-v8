@@ -2,7 +2,7 @@ $(function(){
 	userIndex();
 	foodIndex();
 	// foodGroupIndex();
-	// mealIndex();
+	mealIndex();
 	// mealNamesIndex();
 	// dietIndex();
 	// userLogsIndex();
@@ -12,6 +12,7 @@ function userIndex(){
 	$("span#users_index").on("click", function(e){
 		$("#user").html("");
 		$("#food").html("");
+		$("#meal").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -35,6 +36,8 @@ function userIndex(){
 function foodIndex(){
 	$("span#foods_index").on("click", function(e){
 		$("#user").html("");
+		$("#food").html("");
+		$("#meal").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -53,10 +56,27 @@ function foodIndex(){
 	});
 }
 
-// function foodIndex(){
-// 	// listen to a link
-// 	// hijack the link jquery
-// 	// launch an ajax request
-// 	// process the response
-// 	// inject into the DOM
-// };
+function mealIndex(){
+	$("span#meals_index").on("click", function(e){
+		$("#user").html("");
+		$("#food").html("");
+		$("#meal").html("");
+		e.stopImmediatePropagation();
+		e.preventDefault();
+	$.ajax({
+		type: 'get',
+		url: '/api_meals.json',
+		dataType: 'json',
+		success: function(response){
+// debugger;
+
+		for (var i = response.length - 1; i >= 0; i--) {
+			var mealname = response[i].mealname.name;
+			var food = response[i].food.name;
+			var meal = mealname + ": " + food + "<br>";
+			$("#meal").append(meal);
+				}
+			}
+		});
+	});
+}
