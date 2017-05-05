@@ -38,7 +38,7 @@ class AdminController < ApplicationController
   def api_diets
     @diets = Diet.all
       respond_to do |format|
-      format.html { render 'admin/index' }
+      format.html { render 'admin/index_diets' }
       format.json { render json: @diets }
     end
   end

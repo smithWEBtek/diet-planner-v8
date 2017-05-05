@@ -2,7 +2,7 @@
   <% if current_user.admin? %>
   <%= "ADMIN:" %>
   <% end %>
-  <span id="users_index"><%= link_to "Users", admin_index_path %></span>
+  <span id="users_index"><%= link_to "Users", users_path %></span>
   |
    <span id="meals_index"><%= link_to "Meals", meals_path %></span>
   |

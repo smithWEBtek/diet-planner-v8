@@ -4,7 +4,7 @@ $(function(){
 	groupsIndex();
 	mealsIndex();
 	mealnamesIndex();
-	// dietsIndex();
+	dietsIndex();
 	// userLogsIndex();
 })
 
@@ -15,6 +15,7 @@ function usersIndex(){
 		$("#meal").html("");
 		$("#mealname").html("");
 		$("#group").html("");
+		$("#diet").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -42,6 +43,7 @@ function foodsIndex(){
 		$("#meal").html("");
 		$("#mealname").html("");
 		$("#group").html("");
+		$("#diet").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -67,6 +69,7 @@ function mealsIndex(){
 		$("#meal").html("");
 		$("#mealname").html("");
 		$("#group").html("");
+		$("#diet").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -92,6 +95,7 @@ function mealnamesIndex(){
 		$("#meal").html("");
 		$("#mealname").html("");
 		$("#group").html("");
+		$("#diet").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -114,6 +118,7 @@ function groupsIndex(){
 		$("#meal").html("");
 		$("#mealname").html("");
 		$("#group").html("");
+		$("#diet").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -123,6 +128,29 @@ function groupsIndex(){
 		success: function(response){
 		for (var i = response.length - 1; i >= 0; i--) {
 			$("#group").append(response[i].name + "<br>");
+				}
+			}
+		});
+	});
+}
+
+function dietsIndex(){
+	$("span#diets_index").on("click", function(e){
+		$("#user").html("");
+		$("#food").html("");
+		$("#meal").html("");
+		$("#mealname").html("");
+		$("#group").html("");
+		$("#diet").html("");
+		e.stopImmediatePropagation();
+		e.preventDefault();
+	$.ajax({
+		type: 'get',
+		url: '/api_diets',
+		dataType: 'json',
+		success: function(response){
+		for (var i = response.length - 1; i >= 0; i--) {
+			$("#diet").append(response[i].name + "<br>");
 				}
 			}
 		});
