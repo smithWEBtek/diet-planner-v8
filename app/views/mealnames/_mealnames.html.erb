@@ -1,0 +1,10 @@
+<table>
+  <tr align="left">
+    <th>Mealname</th>
+  </tr>
+  <% mealnames.each do |mealname| %>
+    <tr>
+      <td><%= link_to mealname.name, mealname_path(mealname) %></td>
+    </tr>
+  <% end %>
+</table>

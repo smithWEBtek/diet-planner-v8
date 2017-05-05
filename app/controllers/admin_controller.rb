@@ -28,11 +28,10 @@ class AdminController < ApplicationController
   def index
     @diets = Diet.all
     @users = User.all
-    # @logs = Log.all
-    # @groups = Group.all
-    # @foods = Food.all
+    @logs = Log.all
+    @groups = Group.all
+    @foods = Food.all
     @meals = Meal.all
-
     # render 'admin/index'
   end
 
@@ -73,6 +72,14 @@ class AdminController < ApplicationController
     respond_to do |format|
       format.html { render 'admin/index_meals' }
       format.json { render json: @meals }
+    end
+  end
+
+  def api_mealnames
+    @mealnames = Mealname.all
+    respond_to do |format|
+      format.html { render 'admin/index_mealnames' }
+      format.json { render json: @mealnames }
     end
   end
 

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get '/api_diets', to: 'admin#api_diets'
   get '/api_foods', to: 'admin#api_foods'
   get '/api_meals', to: 'admin#api_meals' 
+  get '/api_mealnames', to: 'admin#api_mealnames' 
 
   get '/static/goodbye', to: 'admin#user_cancellation'
   get '/group_update', to: 'admin#group_update'
