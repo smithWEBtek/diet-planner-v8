@@ -10,6 +10,8 @@ $(function(){
 
 function userIndex(){
 	$("span#users_index").on("click", function(e){
+		$("#user").html("");
+		$("#food").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -32,6 +34,7 @@ function userIndex(){
 
 function foodIndex(){
 	$("span#foods_index").on("click", function(e){
+		$("#user").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
