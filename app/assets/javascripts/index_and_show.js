@@ -54,9 +54,37 @@ function userShow(id){
 			url: '/users/' + id, 
 			dataType: 'json',
 			success: function(response){
-				var user = response.username + " | " + response.email; 
-		clearIndexAndShowArea();
-			$("#user_show").append(user);
+				clearIndexAndShowArea();
+				
+				var id = response.id; 
+				var username = response.username;
+				var role = response.role;
+				var email = response.email; 
+				var weight = response.weight; 
+				var diet = response.diet; 
+
+				// var meals = response.meals; 
+				// var foods = response.foods; 
+				// var logs = response.logs;
+			
+				$("#user_show_id").html("ID: " + id);
+				$("#user_show_username").html("Username: " + username);
+				$("#user_show_role").html("Role: " + role);
+				$("#user_show_email").html("Email: " + email);
+				$("#user_show_weight").html("Weight: " + weight);
+				$("#user_show_diet").html("Diet: " + diet.name);
+
+				// for (var i = meals.length - 1; i >= 0; i--) {
+				// $("#user_show_meals").append(meals[i]);
+				// }
+
+				// for (var i = foods.length - 1; i >= 0; i--) {
+				// $("#user_show_foods").append(foods[i])
+				// }
+
+				// for (var i = logs.length - 1; i >= 0; i--) {
+				// $("#user_show_logs").append(logs[i])	
+				// }
 			}
 		})
 	})
