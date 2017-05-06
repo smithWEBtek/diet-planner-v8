@@ -2,10 +2,7 @@ $(function(){
 	add_celeb();
 	add_food();
 	add_diet();
-	add_phrase();
-	indexGroupsFoodsDiets();
-	attachListenersGroups();
-}); 
+	add_phrase(); });
 
 function add_celeb(){
   $("#new_celeb").on("submit", function(e){
