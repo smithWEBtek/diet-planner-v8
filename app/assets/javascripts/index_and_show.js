@@ -84,13 +84,15 @@ function userShow(id){
 				$("#user_show_meals").append("<hr>" + "MEALS:" + "<br>");
 					for (var i = meals.length - 1; i >= 0; i--) {
 
-					var mealdate = meals[i].date
+					var mealDate = meals[i].mealdate;
 					var mealname = meals[i].mealname.name;
-					var mealfood = meals[i].food.name;
-					var mealqty = meals[i].meal.qty;
-					var mealcals = meals[i].meal.cals;
-					var meal = mealdate + ": for " + mealname + ", I had " + mealqty + mealfood + "'s, and @ " + mealcals + "per " + mealfood + ", it means I added " + mealqty * mealcals + "to my belly!"
-					$("#user_show_meals").append(meal);
+					var mealFood = meals[i].food.name;
+					var mealQty = meals[i].qty;
+					var mealCals = meals[i].food.cals;
+					var mealTotalCals = mealQty * mealCals;
+					var meal = mealDate + ": for " + mealname + ", I had " + mealQty + " " + mealFood + "(s). Adding " + mealTotalCals + " calories to my belly!"
+
+					$("#user_show_meals").append(meal + "<br>");
 					}
 				$("#user_show_foods").append("<hr>" + "FOODS:" + "<br>");
 					for (var i = foods.length - 1; i >= 0; i--) {

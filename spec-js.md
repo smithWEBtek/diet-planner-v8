@@ -10,7 +10,7 @@ example:
 - [X] Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 example: 
 
-- [.] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+- [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 example: 
 
 - [.] Include at least one link that loads or updates a resource without reloading the page.
