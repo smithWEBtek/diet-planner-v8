@@ -5,17 +5,16 @@ $(function(){
 	mealsIndex();
 	mealnamesIndex();
 	dietsIndex();
-	// userLogsIndex();
 })
 
 function usersIndex(){
-	$("span#users_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+	$("span#users_index").on('click', function(e){
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -24,26 +23,42 @@ function usersIndex(){
 		dataType: 'json',
 		success: function(response){
 		for (var i = response.length - 1; i >= 0; i--) {
+			var id = response[i].id;
 			var username = response[i].username;
 			var email = response[i].email;
 			var weight = response[i].weight;
 			var diet = response[i].diet.name;
-			var user = username + "  "+ email+ "  "+ weight + "lbs " + "   " + diet + "  <br>";
-			$("#user").append(user);
+			var user = username + "  "+ email+ "  "+ weight + "lbs " + "   " + diet + "  <br>";			
+			$("#users").append(user);
 				}
+			userShow(id);
 			}
 		});
 	});
 }
 
+function userShow(id){
+	$(".users_links").on("click", function(e){
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/users/' + id, 
+			dataType: 'json',
+			success: function(response){
+				console.log(response)
+			}
+		})
+	})
+}
+
 function foodsIndex(){
 	$("span#foods_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -55,7 +70,7 @@ function foodsIndex(){
 			var name = response[i].name;
 			var group = response[i].group.name;
 			var food = name + "  "+ group + "<br>";
-			$("#food").append(food);
+			$("#foods").append(food);
 				}
 			}
 		});
@@ -64,12 +79,12 @@ function foodsIndex(){
 
 function mealsIndex(){
 	$("span#meals_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -81,7 +96,7 @@ function mealsIndex(){
 			var mealname = response[i].mealname.name;
 			var food = response[i].food.name;
 			var meal = mealname + ": " + food + "<br>";
-			$("#meal").append(meal);
+			$("#meals").append(meal);
 				}
 			}
 		});
@@ -90,12 +105,12 @@ function mealsIndex(){
 
 function mealnamesIndex(){
 	$("span#mealnames_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -104,7 +119,7 @@ function mealnamesIndex(){
 		dataType: 'json',
 		success: function(response){
 		for (var i = response.length - 1; i >= 0; i--) {
-			$("#mealname").append(response[i].name + "<br>");
+			$("#mealnames").append(response[i].name + "<br>");
 				}
 			}
 		});
@@ -113,12 +128,12 @@ function mealnamesIndex(){
 
 function groupsIndex(){
 	$("span#groups_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -127,7 +142,7 @@ function groupsIndex(){
 		dataType: 'json',
 		success: function(response){
 		for (var i = response.length - 1; i >= 0; i--) {
-			$("#group").append(response[i].name + "<br>");
+			$("#groups").append(response[i].name + "<br>");
 				}
 			}
 		});
@@ -136,12 +151,12 @@ function groupsIndex(){
 
 function dietsIndex(){
 	$("span#diets_index").on("click", function(e){
-		$("#user").html("");
-		$("#food").html("");
-		$("#meal").html("");
-		$("#mealname").html("");
-		$("#group").html("");
-		$("#diet").html("");
+		$("#users").html("");
+		$("#foods").html("");
+		$("#meals").html("");
+		$("#mealnames").html("");
+		$("#groups").html("");
+		$("#diets").html("");
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -150,7 +165,7 @@ function dietsIndex(){
 		dataType: 'json',
 		success: function(response){
 		for (var i = response.length - 1; i >= 0; i--) {
-			$("#diet").append(response[i].name + "<br>");
+			$("#diets").append(response[i].name + "<br>");
 				}
 			}
 		});

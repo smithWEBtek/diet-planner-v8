@@ -16,6 +16,7 @@
 <!-- user navbar -->
   <div class="container">
     <div class="row">
+      <h3>Diet Planner v8</h3> 
       <div class="col-lg-12">
           <%= render 'layouts/header' %>
       </div>
@@ -27,6 +28,53 @@
       </div>
     </div>
   </div>
+<!-- ajax 'index' response area -->
+<div class="container">
+  <div class="index_view">
+    <div class="col-lg-12">
+      <div id="users" class="users_links"></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="foods" class="foods_links"></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="meals" class="meals_links"></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="mealnames" class="mealnames_links""></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="groups" class="groups_links"></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="diets" class="diets_links"></div>                              
+    </div>
+  </div>
+</div>
+
+<!-- ajax 'show' response area -->
+<div class="container">
+  <div class="index_view">
+    <div class="col-lg-12">
+      <div id="user_show" class="user_show_links"></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="food_show" class="food_show_links">></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="meal_show" class="meal_show_links">></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="mealname_show" class="mealname_show_links">></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="group_show" class="group_show_links">></div>                              
+    </div>
+    <div class="col-lg-12">
+      <div id="diet_show" class="diet_show_links">></div>                              
+    </div>
+  </div>
+</div>
 
 <!-- main body (yield and flash messages) -->
   <div class="container">
@@ -39,11 +87,14 @@
             <p class="alert"><%#= alert %></p> -->
           <% end %>
         </div>
-      <%= yield %>
+  
+  <%= yield %>
+  
       </div>
     </div>
   </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "index_and_show" %>
   </body>
 </html>
