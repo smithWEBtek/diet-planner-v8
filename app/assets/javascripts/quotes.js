@@ -5,6 +5,10 @@ $(function(){
 	listenForNewQuote();
 });
 
+function clearResponseArea(){
+	$("#response_area").text("")
+}
+
 function quotesJSON(){
 	$("#random_json_quotes").on("click", function(e) {
 	$.ajax({
@@ -12,6 +16,7 @@ function quotesJSON(){
 		url: '/random_quotes',
 		dataType: 'json',
 		success: function(response){
+		clearResponseArea();
 		for (var i = response.length - 1; i >= 0; i--) {
 			$("#response_area").append(response[i] + "<br>");
 			}
@@ -29,7 +34,7 @@ function quotesHTML(){
 		url: '/random_quotes',
 		dataType: 'html',
 		success: function(response){
-		$("#response_area").text("")
+		clearResponseArea();
 				$("#response_area").append(response);
 			}
 		});
@@ -44,7 +49,7 @@ function quotesClear(){
 			type: 'get',
 			url: '/clear_quotes',
 		}).success(function(){
-			$("#response_area").html("");
+		clearResponseArea();
 		});	
 	e.preventDefault();
 	});
@@ -58,6 +63,7 @@ function listenForNewQuote(){
 			type: 'get',
 			url: '/quotes/new',
 			}).success(function(response){
+			clearResponseArea();
 			$("#response_area").html(response)
 		newQuote();
 		 })
@@ -83,6 +89,7 @@ function newQuote(){
 		  		}
 		  	}
 			}).success(function(response){
+			clearResponseArea();
 			$("#response_area").html(response);
 		});
 	});
