@@ -9,14 +9,20 @@ $(function(){
 
 })
 
+function clearIndexAndShowArea(){
+	$("#users").html("");
+	$("#foods").html("");
+	$("#meals").html("");
+	$("#mealnames").html("");
+	$("#groups").html("");
+	$("#diets").html("");
+
+
+}
+
 function usersIndex(){
-	$("span#users_index").on('click', '.user_show', function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+	$("span#users_index").on('click', function(e){
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -31,28 +37,26 @@ function usersIndex(){
 			var weight = response[i].weight;
 			var diet = response[i].diet.name;
 			var user = username + "  "+ email+ "  "+ weight + "lbs " + "   " + diet + "  <br>";			
-			$("#users").append(user);
+			// var user = username + "  "+ email+ "  "+ weight + "lbs " + "   " + diet + "  <br>";		
+
+			$("#users").append("<p data-id=" + id + ">" + user + "</p>");
 				}
-		userShow();
+		userShow(id);
 			}
 		});
 	});
 }
 
-function userShow(){
-	$(".user_show").on("click", function(e){
-debugger;
-		
+function userShow(id){
+	$("#users p").on("click", function(e){
+		var id = parseInt(this.dataset.id);
 		e.preventDefault();
 		$.ajax({
 			type: 'get',
 			url: '/users/' + id, 
-			dataType: 'json',
+			dataType: 'html',
 			success: function(response){
-
-	console.log(response);
-
-				$("#user_show").append(response);
+			$("#user_show").append(response);
 			}
 		})
 	})
@@ -60,12 +64,7 @@ debugger;
 
 function foodsIndex(){
 	$("span#foods_index").on("click", function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -86,12 +85,7 @@ function foodsIndex(){
 
 function mealsIndex(){
 	$("span#meals_index").on("click", function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -112,12 +106,7 @@ function mealsIndex(){
 
 function mealnamesIndex(){
 	$("span#mealnames_index").on("click", function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -135,12 +124,7 @@ function mealnamesIndex(){
 
 function groupsIndex(){
 	$("span#groups_index").on("click", function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -158,12 +142,7 @@ function groupsIndex(){
 
 function dietsIndex(){
 	$("span#diets_index").on("click", function(e){
-		$("#users").html("");
-		$("#foods").html("");
-		$("#meals").html("");
-		$("#mealnames").html("");
-		$("#groups").html("");
-		$("#diets").html("");
+		clearIndexAndShowArea();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
