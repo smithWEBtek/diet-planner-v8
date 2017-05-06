@@ -1,4 +1,5 @@
 $(function(){
+	clearIndexAndShowArea();
 	usersIndex();
 	foodsIndex();
 	groupsIndex();
