@@ -10,7 +10,7 @@ $(function(){
 })
 
 function usersIndex(){
-	$("span#users_index").on('click', '.user_show' function(e){
+	$("span#users_index").on('click', '.user_show', function(e){
 		$("#users").html("");
 		$("#foods").html("");
 		$("#meals").html("");
