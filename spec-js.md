@@ -13,7 +13,7 @@ example:
 - [X] Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 example: 
 
-- [.] Include at least one link that loads or updates a resource without reloading the page.
+- [X] Include at least one link that loads or updates a resource without reloading the page.
 example: 
 
 - [ ] Translate JSON responses into js model objects.
