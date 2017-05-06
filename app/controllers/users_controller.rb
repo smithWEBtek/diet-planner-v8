@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @user_cals = @user.user_cals
     @user_avg_cals_per_meal = @user.user_avg_cals_per_meal
     load_diet_stats
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @user }
+    end
   end
 
   def create
