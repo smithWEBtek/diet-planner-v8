@@ -5,10 +5,12 @@ $(function(){
 	mealsIndex();
 	mealnamesIndex();
 	dietsIndex();
+	userShow();
+
 })
 
 function usersIndex(){
-	$("span#users_index").on('click', function(e){
+	$("span#users_index").on('click', '.user_show' function(e){
 		$("#users").html("");
 		$("#foods").html("");
 		$("#meals").html("");
@@ -31,21 +33,26 @@ function usersIndex(){
 			var user = username + "  "+ email+ "  "+ weight + "lbs " + "   " + diet + "  <br>";			
 			$("#users").append(user);
 				}
-			userShow(id);
+		userShow();
 			}
 		});
 	});
 }
 
-function userShow(id){
-	$(".users_links").on("click", function(e){
+function userShow(){
+	$(".user_show").on("click", function(e){
+debugger;
+		
 		e.preventDefault();
 		$.ajax({
 			type: 'get',
 			url: '/users/' + id, 
 			dataType: 'json',
 			success: function(response){
-				console.log(response)
+
+	console.log(response);
+
+				$("#user_show").append(response);
 			}
 		})
 	})
