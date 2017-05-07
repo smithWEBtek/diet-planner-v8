@@ -15,5 +15,4 @@
 //= require bootstrap-sprockets
 //= require add_celeb_food_diet_phrase
 //= require quotes
-//= require custom_object
 //= require index_and_show
