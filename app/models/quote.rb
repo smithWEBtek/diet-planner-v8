@@ -60,7 +60,6 @@ class Quote < ApplicationRecord
       elsif params[:quote][:phrase_id]
         @phrase = Phrase.find_by_id(params[:quote][:phrase_id]) 
     end
-
     @quote = Quote.create(
       celeb_id: @celeb.id,
       verb_id: @verb.id,

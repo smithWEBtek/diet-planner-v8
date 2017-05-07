@@ -3,7 +3,7 @@ $(function(){
 	quotesHTML();
 	quotesClear();
 	listenForNewQuote();
-	// listenForNewCustomQuote();
+	listenForNewCustomQuote();
 });
 
 function clearResponseArea(){
@@ -114,28 +114,29 @@ function listenForNewCustomQuote(){
 
 function newCustomQuote(){
 	$("#custom_quote_response_area form").on("submit", function(e){
-debugger;
-
 	 	e.stopImmediatePropagation();
 		e.preventDefault();	
 		$.ajax({
 			type: 'post',
-			url: '/quotes',
+			url: '/new_custom_quote',
 			data: {
 				authenticity_token:	$("input[name='authenticity_token']").val(),
 				quote: {
-					celeb: $("#quote_celeb").val(),
-					verb: $("#quote_verb").val(),
-					adj: $("#quote_adj").val(),
-					food: $("#quote_food").val(),
+					celeb_id: $("#quote_celeb_id").val(),
+					verb_id: $("#quote_verb_id").val(),
+					adj_id: $("#quote_adj_id").val(),
+					food_id: $("#quote_food_id").val(),
 					diet_id: $("#quote_diet_id").val(),
-					phrase: $("#quote_phrase").val()
+					phrase_id: $("#quote_phrase_id").val()
 		  		}
 		  	}
-			}).success(function(response){
-			var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet_id, phrase); 
-		alert(celebMeal.customQuote);
-			clearResponseArea();
+		  }).success(function(response){
+		// 	clearResponseArea();
+debugger;
+
+	
+		// 	var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet_id, phrase); 
+		// alert(celebMeal.customQuote);
 			$("#custom_quote_response_area").html(response);
 		});
 	});

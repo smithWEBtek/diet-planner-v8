@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get '/random_quotes', to: 'quotes#random_quotes'
   get '/new_custom_quote', to: 'quotes#new_custom_quote'
-  post '/new_custom_quote', to: 'quotes#create_custom_quote'
+  post '/new_custom_quote', to: 'quotes#create'
   get '/clear_quotes', to: 'quotes#clear_quotes'
   get '/export_quotes_csv', to: 'quotes#export_quotes_csv'
 

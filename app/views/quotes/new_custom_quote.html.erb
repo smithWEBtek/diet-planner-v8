@@ -11,27 +11,27 @@
   </ul>
 </div>
 <% end %>
-<div class="field<%= '_with_errors' if f.object.errors[:celeb].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:celeb].any? %>" id="custom_quote_celeb_id">
   <%= f.label :celeb %><br>
   <%= f.collection_select :celeb_id, Celeb.all, :id, :name, include_blank: true %>
 </div>
-<div class="field<%= '_with_errors' if f.object.errors[:verb].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:verb].any? %>" id="custom_quote_verb_id">
   <%= f.label :verb %><br>
   <%= f.collection_select :verb_id, Verb.all, :id, :name, include_blank: true %>
 </div>
-<div class="field<%= '_with_errors' if f.object.errors[:adj].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:adj].any? %>" id="custom_quote_adj_id">
   <%= f.label :adj %><br>
   <%= f.collection_select :adj_id, Adj.all, :id, :name, include_blank: true %>
 </div>
-<div class="field<%= '_with_errors' if f.object.errors[:food].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:food].any? %>" id="custom_quote_food_id">
   <%= f.label :food %><br>
   <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
 </div>
-<div class="field<%= '_with_errors' if f.object.errors[:diet].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:diet].any? %>" id="custom_quote_diet_id">
   <%= f.label :diet %><br>
   <%= f.collection_select :diet_id, Diet.all, :id, :name, include_blank: true %>
 </div>
-<div class="field<%= '_with_errors' if f.object.errors[:phrase].any? %>">
+<div class="field<%= '_with_errors' if f.object.errors[:phrase].any? %>" id="custom_quote_phrase_id">
   <%= f.label :phrase %><br>
   <%= f.collection_select :phrase_id, Phrase.all, :id, :content, include_blank: true %>
 </div>
