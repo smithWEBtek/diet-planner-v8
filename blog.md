@@ -5,13 +5,17 @@ My choice was the Diet-Planner application, which tracks Users' Diets, Foods, Me
 The app is currently on Heroku here:  https://diet-planner-v8.herokuapp.com
  
 ## Key Points
+
 ### Outline
+
 The app has the common functionality of index, show, edit, new, create, update, destroy for all models. 
 The data model is shown in this ERD diagram: http://res.cloudinary.com/smithwebtek/image/upload/v1494192278/diet-tracker/diet-planner-v8/erd.pdf
 
 ### The data model is summarized as follows: 
+
   Users register and track their Diets, Meals, Calories and Log their experiences
   Users participate in groups of like-minded Dieters, to compare calories consumed, avg calories, etc.
+
 Data model
   Users
   Foods
@@ -21,6 +25,7 @@ Data model
   Quotes
 
 ### Active Record relationships
+
   User has_many :meals
        belongs_to :diet
 
@@ -42,22 +47,28 @@ Data model
 The "Quote" model is where most of the required jQuery / AJAX / JSON functionality is done. 
 
 ###  Requirements
+
 The following specs were requirements, and I'll go through each one with a few examples of meeting the requirement.
+
 ###  Use jQuery for implementing new requirements
+
 	*The following files use jQuery:
 		add_celeb_food_diet_phrase.js
 		index_and_show.js
 		quotes.js
 
 ###  Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+
 	*The following active model objects have data rendered for show view:
 	*User
 
 ###  Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+
 	*The following active model objects have data rendered for index views:
 	*Users, Meals, Mealnames, Foods, Groups, Diets
 
 ###  Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+
 	*The following active model object is rendered with JSON, showing has_many relationships:
 	*Users
 		-has_many :meals, :foods, :logs
@@ -65,6 +76,7 @@ The following specs were requirements, and I'll go through each one with a few e
 	*The data shown is then linkeable for individual User, also via jQuery/AJAX/JSON
 	
 ###  Include at least one link that loads or updates a resource without reloading the page.
+
 	*The following active model objects are loaded or updated without reloading page:
 	*Users, Meals, Mealnames, Foods, Groups, Diets
 	*Random JSON Quotes, Random HTML Quotes, New Quote, Clear Quotes
@@ -72,28 +84,34 @@ The following specs were requirements, and I'll go through each one with a few e
 		-these items are saved to the database upon display, and available for inclusion in 'random quote generation'
 
 ###  Translate JSON responses into js model objects.
+
 	*This is demonstrated with the 'New DropDown Quote' button and related code
 		-the form and resulting Quote, is shown via AJAX, and save to the database
 	*New CelebMeal
 		-this is a JavaScript class CelebrityMeal, which is scripted within '/layouts/application.html.erb', because Heroku was not successfully finding the code. 
 
 ###  At least one of the js model objects must have at least one method added by your code to the prototype.
+
 	*this is demonstrated on the class CelebrityMeal, with a custom method 'customQuote', which creates another unique Quote based on the values submitted in the form, all via jQuery/AJAX/JSON
 	
 ###  You have a large number of small Git commits
+
 	*As of this writing, the repo has 125 commits directly related to this version of the app.
 
 ###  Your commit messages are meaningful
+
 	*All of the commit messages are meaningful in terms of what was accomplished with that commit
 
 ###  You made the changes in a commit that relate to the commit message
+
 	*While not 100%, the amount of changes related to commit messages is much higher than previous projects.
 	*I still do have the tendency to jump around fixing things, vs staying focused on a single feature.
 
 ###  You don't include changes in a commit that aren't related to the commit message
+
 	*Not 100% here, but far better than in previous projects. 
 
-Code Example:
+### Code Example:
 
 The following javascript file shows the current level of the programming. 
 Much of it is verbose, using low-level AJAX methods, with repetitive explicit naming of functions. 
@@ -367,7 +385,7 @@ function newCelebMeal(){
 ### Issues Overcome
 
 I found the following challenges:
-1. Difficulty managing various moving parts
+	* Difficulty managing various moving parts
 	
 	* Rails Routes, Controllers, Views, Models, Methods and ActiveRecord relationships
 		- these are all the things the provide Rails goodness, and require complete refresh of the web page to view
@@ -383,6 +401,7 @@ I found the following challenges:
 
 
 ### What I Found
+
 	* I found that sometimes it was not clear why certain JavaScript functionality was breaking, or not refreshing, or just laying there on the page unflinching when I expected it to clear, or update. 
 	
 	* I found that if you type out your next few moves, deciding what you want in functionality, things go better. 
@@ -401,7 +420,8 @@ I found the following challenges:
 	* I found that you can make an entire Rails application DANCE BABY!, without leaving the home page.
 
 
-Summary
+### Summary
+
 I'm looking forward to more with JavaScript, having just scratched the surface with this application. 
 I see now why there are so many JavaScript frameworks out there, because of where it fits in web development, and the fact that you can slip it in anywhere. Rails conventions have made it far more scalable than if it was left to 'grow your own', same goes for JavaScript, so I'm looking forward to delving into React next. 
 
