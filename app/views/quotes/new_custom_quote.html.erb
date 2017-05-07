@@ -13,27 +13,27 @@
 <% end %>
 <div class="field<%= '_with_errors' if f.object.errors[:celeb].any? %>">
   <%= f.label :celeb %><br>
-  <%= f.collection_select :celeb_id, Celeb.all, :id, :name %>
+  <%= f.collection_select :celeb_id, Celeb.all, :id, :name, include_blank: true %>
 </div>
 <div class="field<%= '_with_errors' if f.object.errors[:verb].any? %>">
   <%= f.label :verb %><br>
-  <%= f.collection_select :verb_id, Verb.all, :id, :name %>
+  <%= f.collection_select :verb_id, Verb.all, :id, :name, include_blank: true %>
 </div>
 <div class="field<%= '_with_errors' if f.object.errors[:adj].any? %>">
   <%= f.label :adj %><br>
-  <%= f.collection_select :adj_id, Adj.all, :id, :name %>
+  <%= f.collection_select :adj_id, Adj.all, :id, :name, include_blank: true %>
 </div>
 <div class="field<%= '_with_errors' if f.object.errors[:food].any? %>">
   <%= f.label :food %><br>
-  <%= f.collection_select :food_id, Food.all, :id, :name %>
+  <%= f.collection_select :food_id, Food.all, :id, :name, include_blank: true %>
 </div>
 <div class="field<%= '_with_errors' if f.object.errors[:diet].any? %>">
   <%= f.label :diet %><br>
-  <%= f.collection_select :diet_id, Diet.all, :id, :name %>
+  <%= f.collection_select :diet_id, Diet.all, :id, :name, include_blank: true %>
 </div>
 <div class="field<%= '_with_errors' if f.object.errors[:phrase].any? %>">
   <%= f.label :phrase %><br>
-  <%= f.collection_select :phrase_id, Phrase.all, :id, :content %>
+  <%= f.collection_select :phrase_id, Phrase.all, :id, :content, include_blank: true %>
 </div>
 <%= f.submit %>
 <% end %>

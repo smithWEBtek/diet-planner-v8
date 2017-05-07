@@ -29,20 +29,37 @@ class Quote < ApplicationRecord
   end
 
   def self.build_quote_params(params)
-    @celeb = Celeb.find_or_create_by(name: params[:quote][:celeb])
-    @celeb.save
-
-    @verb = Verb.find_or_create_by(name: params[:quote][:verb])
-    @verb.save
+    if params[:quote][:celeb]
+      @celeb = Celeb.find_or_create_by(name: params[:quote][:celeb])
+      @celeb.save
+      elsif params[:quote][:celeb_id]
+        @celeb = Celeb.find_by_id(params[:quote][:celeb_id]) 
+    end
+    if params[:quote][:verb]
+      @verb = Verb.find_or_create_by(name: params[:quote][:verb])
+      @verb.save
+      elsif params[:quote][:verb_id]
+        @verb = Verb.find_by_id(params[:quote][:verb_id])
+    end
+    if params[:quote][:adj]
+      @adj = Adj.find_or_create_by(name: params[:quote][:adj])
+      @adj.save
+      elsif params[:quote][:adj_id]
+        @adj = Adj.find_by_id(params[:quote][:adj_id])
+    end
     
-    @adj = Adj.find_or_create_by(name: params[:quote][:adj])
-    @adj.save
-    
-    @food = Food.find_or_create_by(name: params[:quote][:food])
-    @food.save
-
-    @phrase = Phrase.find_or_create_by(content: params[:quote][:phrase])
-    @phrase.save
+    if params[:quote][:food]
+      @food = Food.find_or_create_by(name: params[:quote][:food])
+      @food.save
+    elsif params[:quote][:food_id]
+      @food =  Food.find_by_id(params[:quote][:food_id]) 
+    end
+    if params[:quote][:phrase]
+      @phrase = Phrase.find_or_create_by(content: params[:quote][:phrase])
+      @phrase.save
+      elsif params[:quote][:phrase_id]
+        @phrase = Phrase.find_by_id(params[:quote][:phrase_id]) 
+    end
 
     @quote = Quote.create(
       celeb_id: @celeb.id,
