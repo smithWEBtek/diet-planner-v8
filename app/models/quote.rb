@@ -7,9 +7,9 @@ class Quote < ApplicationRecord
   belongs_to :phrase
   validates :celeb_id, :verb_id, :adj_id, :food_id, :diet_id, :phrase_id, presence: true
 
-  def self.build_random_quotes
+  def self.build_random_quotes(qty=5)
     @random_quotes = []
-    5.times do
+    qty.times do
       quote = Quote.new
       quote.celeb = Celeb.find(rand(1..Celeb.all.count))
       quote.verb = Verb.find(rand(1..Verb.all.count))

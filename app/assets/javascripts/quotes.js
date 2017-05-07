@@ -3,12 +3,12 @@ $(function(){
 	quotesHTML();
 	quotesClear();
 	listenForNewQuote();
-	listenForNewCustomQuote();
+	listenForNewDropdownQuote();
 });
 
 function clearResponseArea(){
 	$("#response_area").html("")
-	$("#custom_quote_response_area").html("");
+	$("#dropdown_quote_response_area").html("");
 }
 
 function quotesJSON(){
@@ -97,28 +97,28 @@ function newQuote(){
 	});
 };
 
-function listenForNewCustomQuote(){
-	$("#new_custom_quote_button").on("click", function(e) {
+function listenForNewDropdownQuote(){
+	$("#new_dropdown_quote_button").on("click", function(e) {
  		e.stopImmediatePropagation();
 		e.preventDefault();
 		$.ajax({
 			type: 'get',
-			url: '/new_custom_quote',
+			url: '/new_dropdown_quote',
 			}).success(function(response){
 			clearResponseArea();
-			$("#custom_quote_response_area").html(response)
-		newCustomQuote();
+			$("#dropdown_quote_response_area").html(response)
+		newDropdownQuote();
 		 })
 	});
 }
 
-function newCustomQuote(){
-	$("#custom_quote_response_area form").on("submit", function(e){
+function newDropdownQuote(){
+	$("#dropdown_quote_response_area form").on("submit", function(e){
 	 	e.stopImmediatePropagation();
 		e.preventDefault();	
 		$.ajax({
 			type: 'post',
-			url: '/new_custom_quote',
+			url: '/new_dropdown_quote',
 			data: {
 				authenticity_token:	$("input[name='authenticity_token']").val(),
 				quote: {
@@ -131,13 +131,8 @@ function newCustomQuote(){
 		  		}
 		  	}
 		  }).success(function(response){
-		// 	clearResponseArea();
-debugger;
-
-	
-		// 	var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet_id, phrase); 
-		// alert(celebMeal.customQuote);
-			$("#custom_quote_response_area").html(response);
+			clearResponseArea();
+			$("#dropdown_quote_response_area").html(response);
 		});
 	});
 };
