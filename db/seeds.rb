@@ -119,6 +119,7 @@ DATA_users ={
  :user_keys =>
     ["role", "username", "email", "weight", "password", "diet_id"],
   :users => [
+    [1, "demo", "demo@demo.com", 188, "password", 5],
     [0, "ned", "ned@abc.com", 209, "pointer", 4],
     [1, "max", "max@abc.com", 190, "pointer", 2],
     [0, "skai", "skai@abc.com", 180, "pointer", 2],

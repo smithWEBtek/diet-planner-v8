@@ -16,10 +16,10 @@ example:
 - [X] Include at least one link that loads or updates a resource without reloading the page.
 example: 
 
-- [ ] Translate JSON responses into js model objects.
+- [X] Translate JSON responses into js model objects.
 example: 
 
-- [ ] At least one of the js model objects must have at least one method added by your code to the prototype.
+- [X] At least one of the js model objects must have at least one method added by your code to the prototype.
 example: 
 
 
