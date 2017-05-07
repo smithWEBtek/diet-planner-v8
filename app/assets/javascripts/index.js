@@ -1,12 +1,14 @@
 class CelebrityMeal {
-	constructor(user, celeb, food, phrase){
-	this.user = user;
+	constructor(celeb, food, phrase){
 	this.celeb = celeb;
+	this.verb = verb;
+	this.adj = adj;
 	this.food = food;
+	this.diet_id = diet_id;
 	this.phrase = phrase;
 	}
-	customPhrase(){
-		return (this.user + " dined on " + this.food + " with " + this.celeb + " and said, \"" + this.phrase + "\"" + ".");
+	customQuote(){
+		return (this.celeb + " " + this.verb + " " + this.adj + " " + this.food + " while on the " + this.diet_id + " diet, and said, \"" + this.phrase + "\"" + ".");
 	}
 }
 // function customQuote() {	

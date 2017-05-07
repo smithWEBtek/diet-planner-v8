@@ -3,6 +3,7 @@ $(function(){
 	quotesHTML();
 	quotesClear();
 	listenForNewQuote();
+	newCustomQuote();
 });
 
 function clearResponseArea(){
@@ -90,6 +91,38 @@ function newQuote(){
 		  	}
 			}).success(function(response){
 			clearResponseArea();
+			$("#response_area").html(response);
+		});
+	});
+};
+
+function newCustomQuote(){
+	$("#new_custom_quote").on("click", function(e){
+	 	e.stopImmediatePropagation();
+		e.preventDefault();	
+		$.ajax({
+			type: 'post',
+			url: '/quotes',
+			data: {
+				authenticity_token:	$("input[name='authenticity_token']").val(),
+				quote: {
+					celeb: $("#quote_celeb").val(),
+					verb: $("#quote_verb").val(),
+					adj: $("#quote_adj").val(),
+					food: $("#quote_food").val(),
+					diet_id: $("#quote_diet_id").val(),
+					phrase: $("#quote_phrase").val()
+		  		}
+		  	}
+			}).success(function(response){
+ 
+
+			var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet_id, phrase); 
+			console.log(celebMeal.customQuote);
+			clearResponseArea();
+
+
+
 			$("#response_area").html(response);
 		});
 	});

@@ -1,6 +1,11 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: [:show, :edit, :destroy]
 
+    def new_custom_quote
+      @custom_quote = Quote.new
+      render 'quotes/new_custom_quote', layout: false
+    end
+
     def random_quotes
       @quotes = Quote.build_random_quotes
       @quote_sentences = []

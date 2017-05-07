@@ -19,7 +19,6 @@ function add_celeb(){
   		success: function(){
       $("#celeb_name").val('');
       $("#celeb_list").append(data.celeb.name+ "<br>");
-      attachListenerCeleb();
   		 }
   	});
   	e.preventDefault();
