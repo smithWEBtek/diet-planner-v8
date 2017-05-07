@@ -17,4 +17,3 @@
 //= require quotes
 //= require custom_object
 //= require index_and_show
-//= requier celeb_meal

@@ -99,6 +99,20 @@
   </div>  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <%= javascript_include_tag "application" %>
-  <script type="text/javascript" src="/assets/celeb_meal.js"></script></script>
+  <script type="text/javascript">
+    class CelebrityMeal {
+      constructor(celeb, verb, adj, food, diet, phrase){
+        this.celeb = celeb;
+        this.verb = verb;
+        this.adj = adj;
+        this.food = food;
+        this.diet = diet;
+        this.phrase = phrase;
+        }
+        customQuote(){
+          return (this.celeb + " " + this.verb + " " + this.adj + " " + this.food + " while on the " + this.diet + " diet, and said, \"" + this.phrase + "\"" + ".");
+      }
+    }
+  </script>
   </body>
 </html>
