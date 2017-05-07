@@ -7,7 +7,8 @@ $(function(){
 });
 
 function clearResponseArea(){
-	$("#response_area").text("")
+	$("#response_area").html("")
+	$("#custom_quote_response_area").html("");
 }
 
 function quotesJSON(){
@@ -96,13 +97,30 @@ function newQuote(){
 	});
 };
 
+function listenForNewCustomQuote(){
+	$("#new_custom_quote_button").on("click", function(e) {
+ 		e.stopImmediatePropagation();
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/new_custom_quote',
+			}).success(function(response){
+
+				
+			clearResponseArea();
+			$("#custom_quote_response_area").html(response)
+		newCustomQuote();
+		 })
+	});
+}
+
 function newCustomQuote(){
-	$("#new_custom_quote").on("click", function(e){
+	$("#custom_quote_response_area form").on("submit", function(e){
 	 	e.stopImmediatePropagation();
 		e.preventDefault();	
 		$.ajax({
 			type: 'post',
-			url: '/quotes',
+			url: '/new_custom_quote',
 			data: {
 				authenticity_token:	$("input[name='authenticity_token']").val(),
 				quote: {
@@ -115,15 +133,14 @@ function newCustomQuote(){
 		  		}
 		  	}
 			}).success(function(response){
- 
 
 			var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet_id, phrase); 
-			console.log(celebMeal.customQuote);
+		alert(celebMeal.customQuote);
 			clearResponseArea();
 
 
 
-			$("#response_area").html(response);
+			$("#custom_quote_response_area").html(response);
 		});
 	});
 };
