@@ -4,11 +4,14 @@ $(function(){
 	quotesClear();
 	listenForNewQuote();
 	listenForNewDropdownQuote();
+	newCelebMeal();
+	clearResponseAreas();
 });
 
-function clearResponseArea(){
+function clearResponseAreas(){
 	$("#response_area").html("")
 	$("#dropdown_quote_response_area").html("");
+	$("#celeb_meal_response_area").html("");
 }
 
 function quotesJSON(){
@@ -18,7 +21,7 @@ function quotesJSON(){
 		url: '/random_quotes',
 		dataType: 'json',
 		success: function(response){
-		clearResponseArea();
+		clearResponseAreas();
 		for (var i = response.length - 1; i >= 0; i--) {
 			$("#response_area").append(response[i] + "<br>");
 			}
@@ -36,7 +39,7 @@ function quotesHTML(){
 		url: '/random_quotes',
 		dataType: 'html',
 		success: function(response){
-		clearResponseArea();
+		clearResponseAreas();
 				$("#response_area").append(response);
 			}
 		});
@@ -51,7 +54,7 @@ function quotesClear(){
 			type: 'get',
 			url: '/clear_quotes',
 		}).success(function(){
-		clearResponseArea();
+		clearResponseAreas();
 		});	
 	e.preventDefault();
 	});
@@ -65,7 +68,7 @@ function listenForNewQuote(){
 			type: 'get',
 			url: '/quotes/new',
 			}).success(function(response){
-			clearResponseArea();
+			clearResponseAreas();
 			$("#response_area").html(response)
 		newQuote();
 		 })
@@ -91,7 +94,7 @@ function newQuote(){
 		  		}
 		  	}
 			}).success(function(response){
-			clearResponseArea();
+			clearResponseAreas();
 			$("#response_area").html(response);
 		});
 	});
@@ -105,7 +108,7 @@ function listenForNewDropdownQuote(){
 			type: 'get',
 			url: '/new_dropdown_quote',
 			}).success(function(response){
-			clearResponseArea();
+			clearResponseAreas();
 			$("#dropdown_quote_response_area").html(response)
 		newDropdownQuote();
 		 })
@@ -131,8 +134,30 @@ function newDropdownQuote(){
 		  		}
 		  	}
 		  }).success(function(response){
-			clearResponseArea();
+			clearResponseAreas();
 			$("#dropdown_quote_response_area").html(response);
 		});
 	});
 };
+ 
+function newCelebMeal(){
+	$("#new_celeb_meal_button").on("click", function(e) {
+ 		e.stopImmediatePropagation();
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/one_random_quote',
+			dataType: 'json',
+			}).success(function(response){
+			clearResponseAreas();
+				var celeb = response.celeb.name; 
+				var verb = response.verb.name; 
+				var adj = response.adj.name; 
+				var food = response.food.name; 
+				var diet = response.diet.name; 
+				var phrase = response.phrase.content;
+				var celebMeal = new CelebrityMeal(celeb, verb, adj, food, diet, phrase);
+			$("#celeb_meal_response_area").html(celebMeal.customQuote());
+		 })
+	});
+}

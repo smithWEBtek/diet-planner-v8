@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/export_users_data', to: 'admin#export_users_data'
 
   get '/random_quotes', to: 'quotes#random_quotes'
+  get '/one_random_quote', to: 'quotes#one_random_quote'
   get '/new_dropdown_quote', to: 'quotes#new_dropdown_quote'
   post '/new_dropdown_quote', to: 'quotes#create'
   get '/clear_quotes', to: 'quotes#clear_quotes'

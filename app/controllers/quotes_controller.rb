@@ -6,6 +6,15 @@ class QuotesController < ApplicationController
       render 'quotes/new_dropdown_quote', layout: false
     end
 
+    def one_random_quote
+      @quote = Quote.build_random_quotes(1)[0]
+      @quote_sentence = @quote.build_quote
+      respond_to do |format|
+        format.html { render 'quotes/show', layout: false }
+        format.json { render json: @quote }
+      end
+    end
+
     def random_quotes
       @quotes = Quote.build_random_quotes
       @quote_sentences = []
