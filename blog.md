@@ -4,12 +4,12 @@ This post is an overview of the assignment to create a jQuery front end to an ex
 My choice was the Diet-Planner application, which tracks Users' Diets, Foods, Meals, Logs in a Rails app with a Postgresql backend, authorization via Devise and other goodies. 
 The app is currently on Heroku here:  https://diet-planner-v8.herokuapp.com
  
-##Key Points
-###Outline
+## Key Points
+### Outline
 The app has the common functionality of index, show, edit, new, create, update, destroy for all models. 
 The data model is shown in this ERD diagram: http://res.cloudinary.com/smithwebtek/image/upload/v1494192278/diet-tracker/diet-planner-v8/erd.pdf
 
-###The data model is summarized as follows: 
+### The data model is summarized as follows: 
   Users register and track their Diets, Meals, Calories and Log their experiences
   Users participate in groups of like-minded Dieters, to compare calories consumed, avg calories, etc.
 Data model
@@ -20,7 +20,7 @@ Data model
   Meals
   Quotes
 
-###Active Record relationships
+### Active Record relationships
   User has_many :meals
        belongs_to :diet
 
@@ -41,56 +41,56 @@ Data model
 
 The "Quote" model is where most of the required jQuery / AJAX / JSON functionality is done. 
 
-### Requirements
+###  Requirements
 The following specs were requirements, and I'll go through each one with a few examples of meeting the requirement.
-### Use jQuery for implementing new requirements
+###  Use jQuery for implementing new requirements
 	*The following files use jQuery:
 		add_celeb_food_diet_phrase.js
 		index_and_show.js
 		quotes.js
 
-### Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
+###  Include a show resource rendered using jQuery and an Active Model Serialization JSON backend.
 	*The following active model objects have data rendered for show view:
 	*User
 
-### Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
+###  Include an index resource rendered using jQuery and an Active Model Serialization JSON backend.
 	*The following active model objects have data rendered for index views:
 	*Users, Meals, Mealnames, Foods, Groups, Diets
 
-### Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
+###  Include at least one has_many relationship in information rendered via JSON and appended to the DOM.
 	*The following active model object is rendered with JSON, showing has_many relationships:
 	*Users
 		-has_many :meals, :foods, :logs
 	*The Users index is rendered via jQuery / AJAX / JSON.
 	*The data shown is then linkeable for individual User, also via jQuery/AJAX/JSON
 	
-### Include at least one link that loads or updates a resource without reloading the page.
+###  Include at least one link that loads or updates a resource without reloading the page.
 	*The following active model objects are loaded or updated without reloading page:
 	*Users, Meals, Mealnames, Foods, Groups, Diets
 	*Random JSON Quotes, Random HTML Quotes, New Quote, Clear Quotes
 	*Create Celeb, Create Food, Create Diet, Create Phrase
 		-these items are saved to the database upon display, and available for inclusion in 'random quote generation'
 
-### Translate JSON responses into js model objects.
+###  Translate JSON responses into js model objects.
 	*This is demonstrated with the 'New DropDown Quote' button and related code
 		-the form and resulting Quote, is shown via AJAX, and save to the database
 	*New CelebMeal
 		-this is a JavaScript class CelebrityMeal, which is scripted within '/layouts/application.html.erb', because Heroku was not successfully finding the code. 
 
-### At least one of the js model objects must have at least one method added by your code to the prototype.
+###  At least one of the js model objects must have at least one method added by your code to the prototype.
 	*this is demonstrated on the class CelebrityMeal, with a custom method 'customQuote', which creates another unique Quote based on the values submitted in the form, all via jQuery/AJAX/JSON
 	
-### You have a large number of small Git commits
+###  You have a large number of small Git commits
 	*As of this writing, the repo has 125 commits directly related to this version of the app.
 
-### Your commit messages are meaningful
+###  Your commit messages are meaningful
 	*All of the commit messages are meaningful in terms of what was accomplished with that commit
 
-### You made the changes in a commit that relate to the commit message
+###  You made the changes in a commit that relate to the commit message
 	*While not 100%, the amount of changes related to commit messages is much higher than previous projects.
 	*I still do have the tendency to jump around fixing things, vs staying focused on a single feature.
 
-### You don't include changes in a commit that aren't related to the commit message
+###  You don't include changes in a commit that aren't related to the commit message
 	*Not 100% here, but far better than in previous projects. 
 
 Code Example:
@@ -181,7 +181,7 @@ function newQuote(){
 		4. User Generated Quotes
 		5. Class based Quote, using JavaScript Object Model and method that adds to its prototype
 			* as opposed to writing out specific functionality in every script, the class object allows specific functionality to be added to the prototype (like a blueprint for an instance of the object).
-			* the example here is a class CelebrityMeal, which takes items from the database to construct an instance of 'CelebrityMeal'.  Then, because the class Celebrity Meal was written with a method CustomQuote, we can called the customQuote function on any instance of CelebrityMeal, to get the displayed results.
+			* the example here is a class CelebrityMeal, which takes items from the database to construct an instance of 'CelebrityMeal'.  Then, because the class Celebrity Meal was written with a method CustomQuote, we can call the customQuote function on any instance of CelebrityMeal, to get the displayed results.
 			* this is demonstrated by clicking the button on home page: "New CelebMeal"
 
 
@@ -196,8 +196,7 @@ function clearResponseAreas(){
 ```
 
 
-
-/////full script ////////////////////////////////////////////////////////////////////
+### full script:
 
 ```javascript
 $(function(){
@@ -364,9 +363,9 @@ function newCelebMeal(){
 	});
 }
 ```
-/////////////////////////////////////////////////////////////////////////////////////
+ 
+### Issues Overcome
 
-###Issues Overcome
 I found the following challenges:
 1. Difficulty managing various moving parts
 	
@@ -397,7 +396,7 @@ I found the following challenges:
 		5. Take the time to name things consistently
 			- use instinctive names, brief but descriptive
 			- if you make several of things of similar type, be on the look out for tidy naming conventions
-			- verbose, working, consistently named code...may not be sexy, but other experienced coders will appreciate that they can 'get' what you wrote quicker, so they can you improve.
+			- verbose, working, consistently named code...may not be sexy, but other experienced coders will appreciate that they can 'get' what you wrote quicker, so they can help you improve.
 			- verbose, working, consistently named code...gives the rest of the world something tangible to work with, making YOU more 'workable with'
 	* I found that you can make an entire Rails application DANCE BABY!, without leaving the home page.
 
