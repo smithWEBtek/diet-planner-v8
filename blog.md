@@ -2,14 +2,14 @@ Rails with jQuery Assessment
 This post is an overview of the assignment to create a jQuery front end to an existing Rails app. 
 
 My choice was the Diet-Planner application, which tracks Users' Diets, Foods, Meals, Logs in a Rails app with a Postgresql backend, authorization via Devise and other goodies. 
-The app is currently on Heroku here:  https://diet-planner-v8.herokuapp.com
+The app is currently [on Heroku here]:https://diet-planner-v8.herokuapp.com
  
 ## Key Points
 
 ### Outline
 
 The app has the common functionality of index, show, edit, new, create, update, destroy for all models. 
-The data model is shown in this ERD diagram: http://res.cloudinary.com/smithwebtek/image/upload/v1494192278/diet-tracker/diet-planner-v8/erd.pdf
+The data model is shown in this [ERD diagram]:http://res.cloudinary.com/smithwebtek/image/upload/v1494192278/diet-tracker/diet-planner-v8/erd.pdf
 
 ### The data model is summarized as follows: 
 
