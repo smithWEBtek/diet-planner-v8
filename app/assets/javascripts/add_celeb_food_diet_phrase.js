@@ -17,8 +17,8 @@ function add_celeb(){
   		url: url,
   		data: data,
   		success: function(){
-      $("#celeb_name").val('');
-      $("#celeb_list").append(data.celeb.name+ "<br>");
+      	$("#celeb_name").val('');
+      	$("#celeb_list").append(data.celeb.name+ "<br>");
   		 }
   	});
   	e.preventDefault();
