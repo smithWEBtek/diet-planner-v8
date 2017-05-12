@@ -142,18 +142,18 @@ function foodShow(){
 	$("#foods p").on("click", function(e){
 		clearIndexAndShowAreas();
 		var id = parseInt(this.dataset.id);
-		// history.replaceState(null, null,"/foods/" + id)
+		history.replaceState(null, null,"/foods/" + id)
+			e.stopImmediatePropagation();
 		e.preventDefault();
 		$.ajax({
 			type: 'get',
 			url: '/foods/' + id, 
-			// dataType: 'json',
+			dataType: 'json',
 			success: function(response){
 				clearIndexAndShowAreas();
 				var id = response.id; 
 				var foodname = response.name;
-				$("#food_show_id").html("ID: " + id);
-				$("#food_show_foodname").html("Name: " + foodname);
+				$("#food_show").html("ID: " + id + "<br> Name: " + foodname);
 			}
 		})
 	})
