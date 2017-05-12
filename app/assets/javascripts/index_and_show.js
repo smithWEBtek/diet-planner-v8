@@ -251,10 +251,13 @@ function dietShow(){
 			url: '/diets/' + id, 
 			dataType: 'json',
 			success: function(response){
-				clearIndexAndShowAreas();
+				var users = response.users;
 				var id = response.id; 
 				var dietname = response.name;
-				$("#diet_index_show").html("ID: " + id + "<br> Name: " + dietname);
+				$("#diet_index_show").html("<h3>ID: " + id + "<br> Diet: " + dietname + "</h3><br> Users on the " + dietname + " diet: <br>" );
+				for(i=0, l = users.length-1; i<l; i++ ){
+					$("#diet_index_show").append("<a href='/users/" + id + "'>" + users[i].email + "</a><br>");
+				}
 			}
 		})
 	})
