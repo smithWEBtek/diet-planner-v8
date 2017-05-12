@@ -1,5 +1,5 @@
 $(function(){
-	clearIndexAndShowArea();
+	clearIndexAndShowAreas();
 	usersIndex();
 	foodsIndex();
 	groupsIndex();
@@ -9,7 +9,7 @@ $(function(){
 	userShow();
 })
 
-function clearIndexAndShowArea(){
+function clearIndexAndShowAreas(){
 	$("#users").html("");
 	$("#foods").html("");
 	$("#meals").html("");
@@ -30,7 +30,7 @@ function clearIndexAndShowArea(){
 
 function usersIndex(){
 	$("span#users_index").on('click', function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -55,15 +55,16 @@ function usersIndex(){
 
 function userShow(id){
 	$("#users p").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		var id = parseInt(this.dataset.id);
 		e.preventDefault();
+		history.pushState(null, null, "users/"+ id)
 		$.ajax({
 			type: 'get',
 			url: '/users/' + id, 
 			dataType: 'json',
 			success: function(response){
-				clearIndexAndShowArea();
+				clearIndexAndShowAreas();
 				var id = response.id; 
 				var username = response.username;
 				var role = response.role;
@@ -110,7 +111,7 @@ function userShow(id){
 
 function foodsIndex(){
 	$("span#foods_index").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -131,7 +132,7 @@ function foodsIndex(){
 
 function mealsIndex(){
 	$("span#meals_index").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -152,7 +153,7 @@ function mealsIndex(){
 
 function mealnamesIndex(){
 	$("span#mealnames_index").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -170,7 +171,7 @@ function mealnamesIndex(){
 
 function groupsIndex(){
 	$("span#groups_index").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
@@ -188,7 +189,7 @@ function groupsIndex(){
 
 function dietsIndex(){
 	$("span#diets_index").on("click", function(e){
-		clearIndexAndShowArea();
+		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
 	$.ajax({
