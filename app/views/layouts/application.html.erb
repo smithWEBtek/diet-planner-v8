@@ -32,59 +32,27 @@
   </div>
 
 <!-- ajax 'index' response area -->
-<div class="container">
-  <div class="index_view">
-    <div class="col-lg-12">
-      <div id="users" class="users_links"</div>                              
-    </div>
-    <div class="col-lg-12">
-      <div id="foods" class="foods_links"></div>                              
-    </div>
-    <div class="col-lg-12">
-      <div id="meals" class="meals_links"></div>                              
-    </div>
-    <div class="col-lg-12">
-      <div id="mealnames" class="mealnames_links"></div>                              
-    </div>
-    <div class="col-lg-12">
-      <div id="groups" class="groups_links"></div>                              
-    </div>
-    <div class="col-lg-12">
-      <div id="diets" class="diets_links"></div>                              
-    </div>
+<div id="app-container" class="container">
+	<div class="index_view col-lg-12">
+		<div id="users" class="users_links"></div>
+		<div id="foods" class="foods_links"></div>
+		<div id="meals" class="meals_links"></div>
+		<div id="mealnames" class="mealnames_links"></div>
+		<div id="groups" class="groups_links"></div>
+		<div id="diets" class="diets_links"></div>
+		<div class="user_show_belongs_to"></div>
+		<div id="user_show_id"></div>
+		<div id="user_show_username"></div>
+		<div id="user_show_role"></div>
+		<div id="user_show_email"></div>
+		<div id="user_show_weight"></div>
+		<div id="user_show_diet"></div>
+		<div class="user_show_has_many">
+		<div id="user_show_meals"></div>
+		<div id="user_show_foods"></div>
+		<div id="user_show_logs"></div>
+		<div id="food_show"></div>
   </div>
-</div>
-
-<!-- ajax 'show' response area -->
-<div class="index_view">
-  <div class="container">
-    <div class="col-lg-12">
-      <div class="user_show_belongs_to">
-
-<!-- user 'show' belongs_to -->
-        <div id="user_show_id"></div>
-        <div id="user_show_username"></div>
-        <div id="user_show_role"></div>
-        <div id="user_show_email"></div>
-        <div id="user_show_weight"></div>
-        <div id="user_show_diet"></div>
-      </div>                              
-    </div>
-		
-<!-- user 'show' has_many -->
-    <div class="col-lg-12">
-      <div class="user_show_has_many">
-        <div id="user_show_meals"></div>
-        <div id="user_show_foods"></div>
-        <div id="user_show_logs"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- food 'show' -->
-<div class="col-lg-12 index_view">
-	<div id="food_show"></div>
 </div>
 
 <!-- main body (yield and flash messages) -->
