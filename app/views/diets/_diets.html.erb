@@ -1,15 +1,5 @@
-<div class="row">
-	<div class="col-sm-4">
-	<table>
-		<tr align="left">
-			<th>Diet</th>
-		</tr>
+<table>
 		<% diets.each do |diet| %>
-			<tr>
-				<td><%= link_to diet.name, diet_path(diet), { class: "diet_show", 'data-id': diet.id } %></td>
-			</tr>
+	<tr><td><%= link_to diet.name, diet_path(diet), { class: "diet_show", 'data-id': diet.id } %></td></tr>
 		<% end %>
-	</table>
-	</div>
-	<div id="diet_index_show"class="col-sm-8></div>
-</div>
+</table>

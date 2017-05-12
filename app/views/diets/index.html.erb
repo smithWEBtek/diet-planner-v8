@@ -1,9 +1,20 @@
-<h3>Diets</h3>
+<div class="container">
+	<div class="row">
+		
+		<div class="col-sm-3">
+			<h3>Diets</h3>
+			<% if current_user.admin? %>
+				<p><%= link_to "New Diet", new_diet_path %></p>
+			<% end %>
+			<%= render partial: 'diets/diets', locals: { diets: @diets } %>
+		</div>
 
-<% if current_user.admin? %>
-<p><%= link_to "New Diet", new_diet_path %></p>
-<% end %>
+		<div class="col-sm-3">
+			<div id="diet_index_show"></div>
+		</div>
 
-<%= render partial: 'diets/diets', locals: { diets: @diets } %>
-<br>
-<%= render partial: 'diets/dietstats', locals: { diets: @diets } %>
+		<div class="col-sm-6">
+			<%= render partial: 'diets/dietstats' %>
+		</div>
+	</div>
+</div>
