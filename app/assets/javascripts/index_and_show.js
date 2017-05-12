@@ -243,7 +243,7 @@ function dietShow(){
 	$(".diet_show").on("click", function(e){
 		clearIndexAndShowAreas();
 		var id = parseInt(e.target.dataset.id);
-		history.replaceState(null, null,"/diets/" + id)
+		// history.replaceState(null, null,"/diets/" + id)
 		e.stopImmediatePropagation();
 		e.preventDefault();
 		$.ajax({
@@ -255,8 +255,9 @@ function dietShow(){
 				var id = response.id; 
 				var dietname = response.name;
 				$("#diet_index_show").html("<h3>ID: " + id + "<br> Diet: " + dietname + "</h3><br> Users on the " + dietname + " diet: <br>" );
-				for(i=0, l = users.length-1; i<l; i++ ){
-					$("#diet_index_show").append("<a href='/users/" + id + "'>" + users[i].email + "</a><br>");
+					for(i=0, l = users.length; i<l; i++ ){
+					$("#diet_index_show").append("<a href='/users/" + id + "'>" + users[i].email + "</a><br>")
+// debugger;
 				}
 			}
 		})
