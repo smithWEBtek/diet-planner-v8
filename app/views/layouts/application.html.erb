@@ -14,56 +14,54 @@
   </head>
   <body>
 
+	<div class="container">
+	<h3>Diet Planner v8</h3> 
+
 <!-- user navbar -->
-  <div class="container">
-    <div class="row">
-      <h3>Diet Planner v8</h3> 
-      <div class="col-lg-12">
-          <%= render 'layouts/header' %>
-      </div>
-    </div>
+		<div class="row col-lg-12">
+			<%= render 'layouts/header' %>
+		</div>
 
 <!-- admin navbar -->
-    <div class="row">
-      <div class="col-lg-12">
-          <%= render partial: 'layouts/admin_nav' if current_user && current_user.admin? %>
-      </div>
+    <div class="row col-lg-12">
+      <%= render partial: 'layouts/admin_nav' if current_user && current_user.admin? %>
     </div>
-  </div>
 
-<!-- ajax 'index' response area -->
-<div id="flash_messages" class="flash_style">
-	<% flash.each do |key, value| %>
-		<%= content_tag(:div, value, :class => "flash #{key}") %>
-	<% end %>
-</div>
+<!-- flash messages-->
+		<div id="flash_messages" class="flash_style">
+			<% flash.each do |key, value| %>
+				<%= content_tag(:div, value, :class => "flash #{key}") %>
+			<% end %>
+		</div>
 
-<div id="app-container" class="container">
-	<div class="index_view col-lg-12">
-		<div id="users" class="users_links"></div>
-		<div id="foods" class="foods_links"></div>
-		<div id="meals" class="meals_links"></div>
-		<div id="mealnames" class="mealnames_links"></div>
-		<div id="groups" class="groups_links"></div>
-		<div id="diets" class="diets_links"></div>
-		<div class="user_show_belongs_to"></div>
-		<div id="user_show_id"></div>
-		<div id="user_show_username"></div>
-		<div id="user_show_role"></div>
-		<div id="user_show_email"></div>
-		<div id="user_show_weight"></div>
-		<div id="user_show_diet"></div>
-		<div class="user_show_has_many">
-		<div id="user_show_meals"></div>
-		<div id="user_show_foods"></div>
-		<div id="user_show_logs"></div>
-		<div id="food_show"></div>
+<!-- ajax response area -->
+		<div id="app-container">
+			<div class="row index_view col-lg-12">
+			<div id="users" class="users_links"></div>
+			<div id="foods" class="foods_links"></div>
+			<div id="meals" class="meals_links"></div>
+			<div id="mealnames" class="mealnames_links"></div>
+			<div id="groups" class="groups_links"></div>
+			<div id="diets" class="diets_links"></div>
+			<div class="user_show_belongs_to"></div>
+			<div id="user_show_id"></div>
+			<div id="user_show_username"></div>
+			<div id="user_show_role"></div>
+			<div id="user_show_email"></div>
+			<div id="user_show_weight"></div>
+			<div id="user_show_diet"></div>
+			<div class="user_show_has_many"></div>
+			<div id="user_show_meals"></div>
+			<div id="user_show_foods"></div>
+			<div id="user_show_logs"></div>
+			<div id="food_show"></div>
 
-  <%= yield %>
-	
-    </div>
-  </div>  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <%= javascript_include_tag "application" %>
+<!--main app yield area-->
+			<%= yield %>
+			 
+		</div>
+		</div>
+	</div>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
 </html>
