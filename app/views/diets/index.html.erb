@@ -1,20 +1,25 @@
-<div class="container">
-	<div class="row">
-		
-		<div class="col-sm-3">
-			<h3>Diets</h3>
-			<% if current_user.admin? %>
-				<p><%= link_to "New Diet", new_diet_path %></p>
-			<% end %>
-			<%= render partial: 'diets/diets', locals: { diets: @diets } %>
-		</div>
-
-		<div class="col-sm-3">
-			<div id="diet_index_show"></div>
-		</div>
-
-		<div class="col-sm-6">
+<div class="row">
+	<h4>Diets</h6>
+	<div class="col-sm-3">
+		<% if current_user.admin? %>
+			<p><%= link_to "New Diet", new_diet_path %></p>
+		<% end %>
+		<table>
+			<tr>
+				<th>Diets</th>
+				<tr>
+				<% @diets.each do |diet| %>
+					<tr><td><%= link_to diet.name, diet_path(diet), { class: "diet_show", 'data-id': diet.id } %></td></tr>
+				<% end %>
+			</tr>
+		</table>
+	</div>
+	<div class="col-sm-6">
+		<div id="diet_index_show" style="background-color:lightcyan;"></div>
+	</div>
+</div>
+<div class="row">	
+	<div class="col-lg-12">
 			<%= render partial: 'diets/dietstats' %>
-		</div>
 	</div>
 </div>
