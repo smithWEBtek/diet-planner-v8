@@ -1,6 +1,7 @@
- # README
- # swt-diet-planner-v-001
- simple app for showing diet, meal, food_groups and foods with user login and user data
+diet-planner-v8
+Rails app, with jQuery front end
+
+Simple app for showing diet, meal, food_groups and foods with user login and user data
 
  User can sign up and authorize via Omnni-auth - Facebook.
  User can sign up with info they enter:
@@ -36,7 +37,7 @@
     omniauth-facebook
 
     All of these Gems are in the Gemfile.
-    After cloning, navigate to root of app and run 'bundle install'
+    After cloning the repo, navigate to root of app and run 'bundle install'
 
 * Configuration
 
@@ -71,7 +72,14 @@
     (seed file data has 10 users for examples)
 
   6. How to make a Standard User into Admin user:
-    a. when logged in as Admin (u/n: max@abc.com p/w: pointer)
+    a. when logged in as Admin 
+		
+		username: max@abc.com
+		password: pointer
+		or...
+		username: demo@demo.com
+		password: password
+
     b. navigate to:  http://localhost:3000/admin
       1. click on EDIT on same row as any current Standard User
       2. enter password, enter Log note, click radio button admin
