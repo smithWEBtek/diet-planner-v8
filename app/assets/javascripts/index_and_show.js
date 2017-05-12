@@ -58,8 +58,7 @@ function userShow(id){
 	$("#users p").on("click", function(e){
 		clearIndexAndShowAreas();
 		var id = parseInt(this.dataset.id);
-		// history.pushState(null, null,"/users/"+ id)
-		history.replaceState(null, null,"/users/"+ id)
+		history.replaceState(null, null,"/users/" + id)
 		e.preventDefault();
 		$.ajax({
 			type: 'get',
