@@ -1,12 +1,16 @@
 $(function(){
 	clearIndexAndShowAreas();
 	usersIndex();
-	foodsIndex();
-	groupsIndex();
-	mealsIndex();
-	mealnamesIndex();
-	dietsIndex();
 	userShow();
+	foodsIndex();
+	foodShow();
+	groupsIndex();
+	// groupShow();
+	mealsIndex();
+	// mealShow();
+	dietsIndex();
+	// dietShow();
+	mealnamesIndex();
 })
 
 function clearIndexAndShowAreas(){
@@ -121,15 +125,38 @@ function foodsIndex(){
 		url: '/api_foods.json',
 		dataType: 'json',
 		success: function(response){
-		for (var i = response.length - 1; i >= 0; i--) {
-			var name = response[i].name;
-			var group = response[i].group.name;
-			var food = name + "  "+ group + "<br>";
-			$("#foods").append(food);
+			for (var i = response.length - 1; i >= 0; i--) {
+				var id = response[i].id;
+				var name = response[i].name;
+				var group = response[i].group.name;
+				var food = name + "  "+ group + "<br>";
+				$("#foods").append("<p data-id=" + id + ">" + food + "</p>");
+		foodShow();
 				}
 			}
 		});
 	});
+}
+
+function foodShow(){
+	$("#foods p").on("click", function(e){
+		clearIndexAndShowAreas();
+		var id = parseInt(this.dataset.id);
+		// history.replaceState(null, null,"/foods/" + id)
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/foods/' + id, 
+			// dataType: 'json',
+			success: function(response){
+				clearIndexAndShowAreas();
+				var id = response.id; 
+				var foodname = response.name;
+				$("#food_show_id").html("ID: " + id);
+				$("#food_show_foodname").html("Name: " + foodname);
+			}
+		})
+	})
 }
 
 function mealsIndex(){
