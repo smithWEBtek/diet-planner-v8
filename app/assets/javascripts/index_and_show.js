@@ -116,6 +116,7 @@ function foodsIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/foods")
 	$.ajax({
 		type: 'get',
 		url: '/api_foods.json',
@@ -137,6 +138,7 @@ function mealsIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/meals")
 	$.ajax({
 		type: 'get',
 		url: '/api_meals.json',
@@ -158,6 +160,7 @@ function mealnamesIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/mealnames")
 	$.ajax({
 		type: 'get',
 		url: '/api_mealnames',
@@ -176,6 +179,7 @@ function groupsIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/groups")
 	$.ajax({
 		type: 'get',
 		url: '/api_groups',
@@ -194,6 +198,7 @@ function dietsIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/diets")
 	$.ajax({
 		type: 'get',
 		url: '/api_diets',
