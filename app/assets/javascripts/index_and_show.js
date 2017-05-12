@@ -9,7 +9,7 @@ $(function(){
 	mealsIndex();
 	// mealShow();
 	dietsIndex();
-	// dietShow();
+	dietShow();
 	mealnamesIndex();
 })
 
