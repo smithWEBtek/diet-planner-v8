@@ -33,6 +33,7 @@ function usersIndex(){
 		clearIndexAndShowAreas();
 		e.stopImmediatePropagation();
 		e.preventDefault();
+		history.replaceState(null, null, "/users")
 	$.ajax({
 		type: 'get',
 		url: '/api_users.json',
@@ -57,8 +58,9 @@ function userShow(id){
 	$("#users p").on("click", function(e){
 		clearIndexAndShowAreas();
 		var id = parseInt(this.dataset.id);
+		// history.pushState(null, null,"/users/"+ id)
+		history.replaceState(null, null,"/users/"+ id)
 		e.preventDefault();
-		history.pushState(null, null, "users/"+ id)
 		$.ajax({
 			type: 'get',
 			url: '/users/' + id, 
