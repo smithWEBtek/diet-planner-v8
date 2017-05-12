@@ -5,8 +5,5 @@
 <% end %>
 
 <%= render partial: 'diets/diets', locals: { diets: @diets } %>
-
-<h3>Diet Stats</h3>
-Total calories consumed by each Diet group, # of meals and avg calories per meal, in each Diet group.
-
+<br>
 <%= render partial: 'diets/dietstats', locals: { diets: @diets } %>
