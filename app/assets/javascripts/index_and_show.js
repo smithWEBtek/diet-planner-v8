@@ -230,10 +230,32 @@ function dietsIndex(){
 		url: '/api_diets',
 		dataType: 'json',
 		success: function(response){
-		for (var i = response.length - 1; i >= 0; i--) {
-			$("#diets").append(response[i].name + "<br>");
+			for (var i = response.length - 1; i >= 0; i--) {
+				$("#diets").append(response[i].name + "<br>");
 				}
 			}
 		});
+		dietShow();
 	});
+}
+
+function dietShow(){
+	$(".diet_show").on("click", function(e){
+		clearIndexAndShowAreas();
+		var id = parseInt(e.target.dataset.id);
+		history.replaceState(null, null,"/diets/" + id)
+		e.stopImmediatePropagation();
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/diets/' + id, 
+			dataType: 'json',
+			success: function(response){
+				clearIndexAndShowAreas();
+				var id = response.id; 
+				var dietname = response.name;
+				$("#diet_index_show").html("ID: " + id + "<br> Name: " + dietname);
+			}
+		})
+	})
 }
