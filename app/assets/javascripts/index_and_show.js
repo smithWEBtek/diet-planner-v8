@@ -9,7 +9,7 @@ $(function(){
 	mealsIndex();
 	// mealShow();
 	dietsIndex();
-	// dietShow();
+	dietShow();
 	mealnamesIndex();
 })
 
@@ -230,10 +230,37 @@ function dietsIndex(){
 		url: '/api_diets',
 		dataType: 'json',
 		success: function(response){
-		for (var i = response.length - 1; i >= 0; i--) {
-			$("#diets").append(response[i].name + "<br>");
+			for (var i = response.length - 1; i >= 0; i--) {
+				$("#app-container").append(response[i].name + "<br>");
 				}
 			}
 		});
+		dietShow();
 	});
+}
+
+function dietShow(){
+	$(".diet_show").on("click", function(e){
+		clearIndexAndShowAreas();
+		var id = parseInt(e.target.dataset.id);
+		// history.replaceState(null, null,"/diets/" + id)
+		e.stopImmediatePropagation();
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/diets/' + id, 
+			dataType: 'json',
+			success: function(response){
+				var users = response.users;
+				var id = response.id; 
+				var dietname = response.name;
+				$("#diet_index_show").html("<h4>ID: " + id + "<br> Diet: " + dietname + "</h4><br> Users on the " + dietname + " diet: <br>" );
+				if (users.length >= 1){
+					for(i=0, l = users.length; i<l; i++ ){
+					$("#diet_index_show").append("<a href='/users/" + id + "'>" + users[i].email + "</a><br>")
+					}
+				}
+			}
+		})
+	})
 }

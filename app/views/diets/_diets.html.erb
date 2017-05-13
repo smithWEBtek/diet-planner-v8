@@ -1,10 +1,5 @@
 <table>
-  <tr align="left">
-    <th>Diet</th>
-  </tr>
-  <% diets.each do |diet| %>
-    <tr>
-      <td><%= link_to diet.name, diet_path(diet) %></td>
-    </tr>
-  <% end %>
+		<% diets.each do |diet| %>
+	<tr><td><%= link_to diet.name, diet_path(diet), { class: "diet_show", 'data-id': diet.id } %></td></tr>
+		<% end %>
 </table>
