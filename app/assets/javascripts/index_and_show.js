@@ -243,7 +243,7 @@ function dietShow(){
 	$(".diet_show").on("click", function(e){
 		clearIndexAndShowAreas();
 		var id = parseInt(e.target.dataset.id);
-		// history.replaceState(null, null,"/diets/" + id)
+		history.replaceState(null, null,"/diets/" + id)
 		e.stopImmediatePropagation();
 		e.preventDefault();
 		$.ajax({
