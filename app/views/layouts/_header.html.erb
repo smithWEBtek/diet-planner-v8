@@ -4,8 +4,9 @@
   |
   <%= link_to "Sign Up", new_user_registration_path %>
   |
-  <%= link_to "Sign In",  new_user_session_path %><br>
+  <%= link_to "Sign In",  new_user_session_path %> |
   <% end %>
+  <%= link_to "Fun with Celebrity Quotes", celeb_quotes_path %><br>
 
   <% if current_user && user_signed_in? %>
   <%= link_to "Home", root_path %>

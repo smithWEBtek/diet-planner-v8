@@ -1,6 +1,10 @@
 class StaticController < ApplicationController
 
-  def home
+  def home    
+    render :home
+  end
+
+	def celeb_quotes
     @quotes = Quote.all
 
     @celeb = Celeb.new
@@ -18,7 +22,7 @@ class StaticController < ApplicationController
     @groups = Group.all
     
     @users = User.all
-    
-    render :home
-  end
+		render :celeb_quotes
+	end
+	
 end

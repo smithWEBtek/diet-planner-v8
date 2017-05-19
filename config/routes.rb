@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root 'static#home'
   get '/home', to: 'static#home'
-
-  get '/api_users', to: 'admin#api_users'
+	get '/celeb_quotes', to: 'static#celeb_quotes'
+  
+	get '/api_users', to: 'admin#api_users'
   get '/api_logs', to: 'admin#api_logs'
   get '/api_groups', to: 'admin#api_groups'
   get '/api_diets', to: 'admin#api_diets'
