@@ -19,10 +19,14 @@ gem 'httparty'
 
 #enumerate e.g. admin, standard via integer in db column
 gem 'pundit'
+
 #user authorization
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+# gem to manage admin functions
+gem 'activeadmin', github: 'activeadmin'
 
 #debugging
 gem 'pry'

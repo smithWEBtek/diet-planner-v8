@@ -408,3 +408,5 @@ def main
 end
 
 main
+
+AdminUser.create!(email: 'admin@abc.com', password: 'pointer', password_confirmation: 'pointer') if Rails.env.development?
