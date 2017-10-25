@@ -1,20 +1,17 @@
-ActiveAdmin.register Diet do
+ActiveAdmin.register Food do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-
-permit_params :name
-  actions :all, except: [:destroy]
+  permit_params :name, :cals
   
   form do |f|
-    inputs 'Diet' do
+    inputs 'Food' do
       f.input :name
-      f.input :users
+      f.input :cals
     end
     f.semantic_errors
     f.actions
   end
-
 #
 # or
 #

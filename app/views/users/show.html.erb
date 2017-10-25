@@ -2,7 +2,7 @@
 <div class="index_view">
 <hr>
   Name:		<%= @user.username %><br>
-  Email:	<%= link_to @user.email, mail_to(@user.email) %><br>
+  Email:	<%= mail_to @user.email %><br>
   Weight:	<%= @user.weight %><br>
   
 	<% if @user.diet.name ==  "Choose a diet" %>
