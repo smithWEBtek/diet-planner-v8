@@ -7,6 +7,7 @@ ActiveAdmin.register Food do
   form do |f|
     inputs 'Food' do
       f.input :name
+      f.input :group
       f.input :cals
     end
     f.semantic_errors
