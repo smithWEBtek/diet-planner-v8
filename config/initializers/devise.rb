@@ -258,8 +258,8 @@ Devise.setup do |config|
 # config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
 
 config.omniauth :facebook, 
-ENV['FACEBOOK_APP_ID']="1220363344685365", 
-ENV['FACEBOOK_APP_SECRET']="0710d529a9c1acf4196684cddd385317", 
+ENV['FACEBOOK_APP_ID'], 
+ENV['FACEBOOK_APP_SECRET'], 
 # callback_url: "http://localhost:3000/users/auth/facebook/callback"
 callback_url: "https://diet-planner-v8.herokuapp.com/users/auth/facebook/callback"
 
