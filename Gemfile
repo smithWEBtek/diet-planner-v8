@@ -6,7 +6,7 @@ repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
 end
 #documents
 gem 'mailgun'
-gem 'paperclip'
+# gem 'paperclip'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'pdf-reader'
@@ -30,7 +30,7 @@ gem 'pry-rails'
 
 #rails, postgres database and puma local server
 gem 'rails', '~> 5.0.1'
-gem 'pg'
+gem 'pg', '~>0.21.0' 
 gem 'puma', '~> 3.0'
 gem 'yaml_db'
 
