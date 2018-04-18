@@ -1,9 +1,14 @@
 <h2>Log in</h2>
 
-<div class="flash_style"></div>
-<h4>To login as a demo user:</h4>
-  <p> email: demo@demo.com</p>
-  <p>password: password</p>
+<div class='credentials'>
+<h3>To login as a demo user:</h3>
+<h4>email: demo@demo.com</h4>
+<h4>password: password</h4>
+</div>
+<div class='credentials'>
+	<h3>To login as an admin:</h3>
+  <h4>email: admin@admin.com</h4>
+  <h4>password: password</h4>
 </div>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
