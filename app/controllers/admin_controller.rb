@@ -46,7 +46,17 @@ class AdminController < ApplicationController
   def api_users
     @users = User.all
     respond_to do |format|
-      format.html { render 'admin/index_users' }
+			format.html { render 'admin/index_users' }
+      format.json { render json: @users }
+    end
+  end
+	
+	def api_show_user
+		binding.pry
+		
+    @user = User.find_by(id: params[:user_id])
+    respond_to do |format|
+			format.html { render partial: 'users/api_show_user' }
       format.json { render json: @users }
     end
   end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	get '/celeb_quotes', to: 'static#celeb_quotes'
   
 	get '/api_users', to: 'admin#api_users'
+	get '/api_show_user', to: 'admin#api_show_user'
   get '/api_logs', to: 'admin#api_logs'
   get '/api_groups', to: 'admin#api_groups'
   get '/api_diets', to: 'admin#api_diets'
