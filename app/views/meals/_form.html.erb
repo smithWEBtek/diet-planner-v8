@@ -13,6 +13,9 @@
 <% end %>
 
 <% if !meal_builder.object.id.present? %>
+
+<% binding.pry %>
+
 <fieldset>
   <legend><%= meal_builder.object.mealname.name %></legend>
   <%= meal_builder.label :mealdate %>
