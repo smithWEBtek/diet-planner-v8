@@ -49,6 +49,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'json'
 gem 'active_model_serializers'
 
+# Caistrano for deployment
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger'
+gem 'capistrano', '~> 3.7.2'
+gem 'capistrano-rvm'
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
