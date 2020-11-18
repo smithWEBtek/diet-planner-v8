@@ -3,7 +3,8 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "diet-planner.smithwebtek.com", user: "deploy", roles: %w{app db web}
+# server "diet-planner.smithwebtek.com", user: "deploy", roles: %w{app db web}
+server "67.205.165.187", user: "deploy", roles: %w{app db web}
 
 # role-based syntax
 # ==================
