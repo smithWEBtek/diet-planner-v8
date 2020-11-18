@@ -337,7 +337,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   json
-  listen (~> 3.0.5)
+  listen
   mailgun
   minitest
   nokogiri (~> 1.8.1)
