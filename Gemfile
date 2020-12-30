@@ -16,7 +16,7 @@ gem 'rails-erd'
  
 #scraping
 gem 'watir'
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri', '~> 1.10.10'
 gem 'httparty'
 
 #enumerate e.g. admin, standard via integer in db column
